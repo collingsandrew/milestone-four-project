@@ -51,7 +51,7 @@
           <div class="col"></div>
 
           <div class="col text-center">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'home' %}">
               <h1 class="site-heading">Book Nookery</h1>
             </a>
           </div>
@@ -84,6 +84,27 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- home, account and bag links to only show on medium devices and below -->
+          <div class="d-lg-none ms-auto d-flex">
+            <a href="{% url 'home' %}" class="nav-link">
+              <div>
+                <i class="fa-solid fa-house me-3 fs-4"></i>
+              </div>
+            </a>
+
+            <a href="#" class="nav-link">
+              <div>
+                <i class="fa-solid fa-circle-user me-3 fs-4"></i>
+              </div>
+            </a>
+
+            <a href="#" class="nav-link">
+              <div>
+                <i class="fa-solid fa-bag-shopping fs-4"></i>
+              </div>
+            </a>
+          </div>
 
           <!-- navbar links and search bar -->
           <div class="collapse navbar-collapse" id="navbarNav">
