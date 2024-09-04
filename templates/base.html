@@ -160,8 +160,11 @@
               <li class="nav-item">
                 <a class="nav-link fs-5 me-4" href="#">New Releases</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link fs-5 me-4" href="#">Books</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link fs-5 me-4 " href="#" id="books-link" data-bs-toggle="dropdown" aria-expanded="false">Books</a>
+                <div class="dropdown-menu rounded-0" aria-labelledby="books-link">
+                  <a href="" class="dropdown-item">All Books</a>
+              </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link fs-5" href="#">Our Favourites</a>
@@ -177,6 +180,8 @@
       </nav>
 
     </header>
+
+    <div class="header-margin"></div>
 
     {% if messages %}
     <div class="message-container"></div>
