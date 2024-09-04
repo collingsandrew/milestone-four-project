@@ -57,20 +57,47 @@
           </div>
 
           <div class="col d-flex justify-content-end align-items-center">
-            <!-- account link -->
-            <a href="#" class="nav-link text-center mx-2">
-              <div>
-                <i class="fa-solid fa-circle-user fs-4"></i>
-              </div>
-              <p class="my-0 fs-5">Account</p>
-            </a>
+            <ul class="list-inline">
+              <!-- account link and dropdown menu -->
+              <li class="list-inline-item dropdown">
+                <a href="#" class="nav-link text-center mx-2" id="user-options" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <div>
+                    <i class="fa-solid fa-circle-user fs-4"></i>
+                  </div>
+                  <p class="my-0 fs-5">Account</p>
+                </a>
+                <div class="dropdown-menu rounded-0" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                  <a href="" class="dropdown-item">Product Management</a>
+                  {% endif %}
+                  <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>
+                  <a href="" class="dropdown-item" aria-label="go to wishlist">Wishlist</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="logout">Logout</a>
+                  {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="register">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="login">Login</a>
+                  {% endif %}
+                </div>
+              </li>
 
-            <!-- bag link -->
-            <a href="#" class="nav-link text-center mx-2">
-              <div>
-                <i class="fa-solid fa-bag-shopping fs-4"></i>
-              </div>
-            </a>
+              <!-- bag link -->
+              <li class="list-inline-item">
+                <a href="#" class="nav-link text-center mx-2">
+                  <div>
+                    <i class="fa-solid fa-bag-shopping fs-4"></i>
+                  </div>
+                  <p class="my-0 fs-5">
+                    {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                    £0.00
+                    {% endif %}
+                  </p>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -86,24 +113,45 @@
           </button>
 
           <!-- home, account and bag links to only show on medium devices and below -->
-          <div class="d-lg-none ms-auto d-flex">
-            <a href="{% url 'home' %}" class="nav-link">
-              <div>
-                <i class="fa-solid fa-house me-3 fs-4"></i>
-              </div>
-            </a>
+          <div class="d-lg-none ms-auto d-flex justify-content-center">
+            <ul class="list-inline justify-content-center mb-0">
+              <li class="list-inline-item">
+                <a href="{% url 'home' %}" class="nav-link">
+                  <div>
+                    <i class="fa-solid fa-house me-3 fs-4"></i>
+                  </div>
+                </a>
+              </li>
 
-            <a href="#" class="nav-link">
-              <div>
-                <i class="fa-solid fa-circle-user me-3 fs-4"></i>
-              </div>
-            </a>
+              <li class="list-inline-item dropdown">
+                <a href="#" class="nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div>
+                    <i class="fa-solid fa-circle-user me-3 fs-4"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu rounded-0" aria-labelledby="user-options">
+                  {% if request.user.is_authenticated %}
+                  {% if request.user.is_superuser %}
+                  <a href="" class="dropdown-item">Product Management</a>
+                  {% endif %}
+                  <a href="" class="dropdown-item" aria-label="go to my profile">My Profile</a>
+                  <a href="" class="dropdown-item" aria-label="go to wishlist">Wishlist</a>
+                  <a href="{% url 'account_logout' %}" class="dropdown-item" aria-label="logout">Logout</a>
+                  {% else %}
+                  <a href="{% url 'account_signup' %}" class="dropdown-item" aria-label="register">Register</a>
+                  <a href="{% url 'account_login' %}" class="dropdown-item" aria-label="login">Login</a>
+                  {% endif %}
+                </div>
+              </li>
 
-            <a href="#" class="nav-link">
-              <div>
-                <i class="fa-solid fa-bag-shopping fs-4"></i>
-              </div>
-            </a>
+              <li class="list-inline-item">
+                <a href="#" class="nav-link">
+                  <div>
+                    <i class="fa-solid fa-bag-shopping fs-4"></i>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </div>
 
           <!-- navbar links and search bar -->
