@@ -172,7 +172,7 @@
             </ul>
             <form class="d-flex ms-auto" role="search">
               <input class="form-control rounded-0 fs-5" type="search" placeholder="Search for books" aria-label="Search">
-              <button class="btn btn-color rounded-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <button class="btn btn-custom" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
 
@@ -187,8 +187,10 @@
     <div class="message-container"></div>
     {% endif %}
 
+    <div class="container-fluid col-11 col-lg-6 d-flex flex-column justify-content-center mt-3 mb-5">
     {% block page_header %}
-    {% endblock %}
+    {% endblock %}  
+    </div>
 
     {% block content %}
     {% endblock %}
