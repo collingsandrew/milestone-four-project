@@ -22,7 +22,6 @@ html, body {
 
 header {
     background-color: #F5F7F6;
-    border-bottom: solid #3C3A36 2px;
 }
 
 footer {
@@ -32,7 +31,16 @@ footer {
 }
 
 .header-margin {
-    margin-top: 70px;
+    margin-top: 94px;
+}
+
+.nav-link {
+    color: #3C3A36;
+}
+
+#delivery-banner {
+    background-color: #3C3A36;
+    color: white;
 }
 
 .page-heading {
@@ -70,6 +78,6 @@ a:hover {
 
 @media (min-width: 992px) {
     .header-margin {
-        margin-top: 180px;
+        margin-top: 207px;
     }
 }
