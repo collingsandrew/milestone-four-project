@@ -33,6 +33,7 @@ class Product(models.Model):
     weight = models.IntegerField(blank=True, null=True)
     dimensions = models.CharField(max_length=254, blank=True, null=True)
     is_favourite = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
