@@ -1,0 +1,17 @@
+.small-card-img {
+    max-height: 260px;
+    object-fit: contain;
+}
+
+.custom-card {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #F5F7F6;
+}
+
+.truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
+}
