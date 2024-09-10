@@ -5,7 +5,7 @@ class TestHomeViews(TestCase):
 
     def test_get_home_page(self):
         """
-        check if index.html is displayed
+        test get home page
         """
         response=self.client.get('/')
         self.assertEqual(response.status_code, 200)
