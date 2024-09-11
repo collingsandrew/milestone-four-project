@@ -55,7 +55,7 @@ footer {
 /* accents */
 
 .btn-custom {
-    background-color: #A67C52;
+    background-color: #3C3A36;
     color: white;
     border: #3C3A36 2px solid;
     border-radius: 0;
@@ -64,6 +64,10 @@ footer {
 
 .btn-custom:hover {
     border: #3C3A36 2px solid;
+}
+
+.custom-btn-link:hover {
+    text-decoration: none;
 }
 
 a {
