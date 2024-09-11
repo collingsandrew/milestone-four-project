@@ -16,3 +16,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;  
 }
+
+/* media queries */
+
+@media (min-width: 1440px) {
+    .custom-col {
+        width: 50%;
+    }
+}
