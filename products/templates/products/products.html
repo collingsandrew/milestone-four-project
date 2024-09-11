@@ -21,14 +21,14 @@
             <div class="row mb-2"></div>
             <div class="row">
                 {% for product in products %}
-                <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
+                <div class="col-6 col-md-4 col-lg-3 mb-5">
                     <div class="card h-100 border-0 custom-card">
                         {% if product.image %}
-                        <a href="">
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
                             <img class="card-img-top img-fluid small-card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="">
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
                             <img class="card-img-top img-fluid small-card-img" src="{{ MEDIA_URL }}no-image.webp"
                                 alt="{{ product.name }}">
                         </a>
