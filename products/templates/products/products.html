@@ -24,17 +24,17 @@
                 <div class="col-6 col-md-4 col-lg-3 mb-5">
                     <div class="card h-100 border-0 custom-card">
                         {% if product.image %}
-                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto" aria-label="go to product details">
                             <img class="card-img-top img-fluid small-card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                         {% else %}
-                        <a href="{% url 'product_detail' product.id %}" class="mx-auto">
+                        <a href="{% url 'product_detail' product.id %}" class="mx-auto" aria-label="go to product details">
                             <img class="card-img-top img-fluid small-card-img" src="{{ MEDIA_URL }}no-image.webp"
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}
                         <div class="card-body pb-0 text-center">
-                            <a href="" class="products-name-link">
+                            <a href="{% url 'product_detail' product.id %}" class="products-name-link" aria-label="go to product details">
                                 <h5 class="mb-0 truncate">{{ product.name }}</h5>   
                             </a>
                             <small class="mb-0">{{ product.author }}</small>
