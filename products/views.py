@@ -13,13 +13,21 @@ def all_products(request):
     products = Product.objects.filter(is_active=True)
     query = None
     categories = None
+    is_favourite = False
 
     if request.GET:
+        # filter favourite products
+        if 'is_favourite' in request.GET:
+            is_favourite = request.GET['is_favourite'].lower() == 'true'
+            products = products.filter(is_favourite=is_favourite)
+
+        # filter products by categories
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+        # filter products based on search
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -40,6 +48,7 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': categories,
+        'is_favourite': is_favourite,
     }
 
     return render(request, 'products/products.html', context)

@@ -12,6 +12,8 @@
     Books in {{ current_categories|join:", " }}
     {% elif search_term %}
     You searched for: {{ search_term }}
+    {% elif is_favourite %}
+    Our Favourites
     {% else %}
     All Books
     {% endif %}
