@@ -8,7 +8,13 @@
 {% block page_header %}
 
 <h2 class="page-heading">
+    {% if current_categories %}
+    Books in {{ current_categories|join:", " }}
+    {% elif search_term %}
+    You searched for: {{ search_term }}
+    {% else %}
     All Books
+    {% endif %}
 </h2>
 
 {% endblock %}

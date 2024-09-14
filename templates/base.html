@@ -164,6 +164,14 @@
                 <a class="nav-link fs-5 me-4 " href="#" id="books-link" data-bs-toggle="dropdown" aria-expanded="false">Books</a>
                 <div class="dropdown-menu rounded-0" aria-labelledby="books-link">
                   <a href="{% url 'products' %}" class="dropdown-item">All Books</a>
+                  <a href="{% url 'products' %}?category=fiction" class="dropdown-item">Fiction</a>
+                  <a href="{% url 'products' %}?category=non-fiction" class="dropdown-item">Non-Fiction</a>
+                  <a href="{% url 'products' %}?category=crime" class="dropdown-item">Crime</a>
+                  <a href="{% url 'products' %}?category=science-fiction" class="dropdown-item">Science Fiction</a>
+                  <a href="{% url 'products' %}?category=fantasy" class="dropdown-item">Fantasy</a>
+                  <a href="{% url 'products' %}?category=horror" class="dropdown-item">Horror</a>
+                  <a href="{% url 'products' %}?category=childrens" class="dropdown-item">Children's</a>
+                  <a href="{% url 'products' %}?category=educational" class="dropdown-item">Educational</a>
               </div>
               </li>
               <li class="nav-item">
