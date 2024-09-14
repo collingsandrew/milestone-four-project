@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Product
 
 
@@ -9,9 +11,28 @@ def all_products(request):
 
     # filter only active products
     products = Product.objects.filter(is_active=True)
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                    request,"You didn't enter any search criteria!"
+                )
+                return redirect(reverse('products'))
+
+            queries = (
+                Q(name__icontains=query) |
+                Q(author__icontains=query) |
+                Q(format_type__icontains=query) |
+                Q(isbn__icontains=query)
+            )
+            products = products.filter(queries)
 
     context = {
         'products': products,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)
