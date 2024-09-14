@@ -1,7 +1,7 @@
 /* products page */
 
 .small-card-img {
-    max-height: 260px;
+    height: 220px;
     object-fit: contain;
     border-radius: 0%;
 }
