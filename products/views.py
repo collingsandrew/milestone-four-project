@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from datetime import date, timedelta
+
 from .models import Product, Category
 
 
@@ -14,8 +16,22 @@ def all_products(request):
     query = None
     categories = None
     is_favourite = False
+    is_new_release = False
 
     if request.GET:
+        # filter new releases
+        if 'is_new_release' in request.GET:
+            is_new_release = request.GET['is_new_release'].lower() == 'true'
+            if is_new_release:
+                # get todays date
+                start_date = date.today()
+                # work out the date 60 days ago
+                end_date = start_date - timedelta(days=60)
+                # filter products based on the 60 day date range
+                products = products.filter(
+                    publication_date__range=(end_date, start_date)
+                )
+
         # filter favourite products
         if 'is_favourite' in request.GET:
             is_favourite = request.GET['is_favourite'].lower() == 'true'
@@ -49,6 +65,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'is_favourite': is_favourite,
+        'is_new_release': is_new_release,
     }
 
     return render(request, 'products/products.html', context)
