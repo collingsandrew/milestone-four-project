@@ -13,12 +13,24 @@ def all_products(request):
 
     # filter only active products
     products = Product.objects.filter(is_active=True)
+
+    sort = None
     query = None
     categories = None
     is_favourite = False
     is_new_release = False
 
     if request.GET:
+        # sorting of products
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort_field, sort_direction = sortkey.split('-')
+
+            if sort_direction == 'desc':
+                sort_field = f'-{sort_field}'
+
+            products = products.order_by(sort_field)
+
         # filter new releases
         if 'is_new_release' in request.GET:
             is_new_release = request.GET['is_new_release'].lower() == 'true'

@@ -19,6 +19,12 @@
     text-overflow: ellipsis;  
 }
 
+.custom-select {
+    width: 40%;
+    float: right;
+    margin-left: auto;
+}
+
 /* product detail page */
 
 .product-detail-img {

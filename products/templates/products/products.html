@@ -2,7 +2,11 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'products/products.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'products/js/products.js' %}"></script>
 {% endblock %}
 
 {% block page_header %}
@@ -28,8 +32,21 @@
 <div class="container-fluid">
     <div>
         <div class="col-10 col-lg-8 mx-auto custom-col">
-            <div class="row mb-2"></div>
             <div class="row">
+                <!-- product sort selector -->
+                <div class="row mb-4">
+                    <!--
+                    https://stackoverflow.com/questions/12388954/redirect-form-to-different-url-based-on-select-option-element
+                    used as reference to sort products with select element
+                    -->
+                    <select id="sort-selector" class="form-select rounded-0 custom-select" aria-label="sort products">
+                        <option value="{% url 'products' %}" selected>Sort by...</option>
+                        <option value="{% url 'products' %}?sort=publication_date-asc">Publication Date (old to new)</option>
+                        <option value="{% url 'products' %}?sort=publication_date-desc">Publication Date (new to old)</option>
+                        <option value="{% url 'products' %}?sort=price-asc">Price (low to high)</option>
+                        <option value="{% url 'products' %}?sort=price-desc">Price (high to low)</option>
+                    </select>
+                </div>
                 {% for product in products %}
                 <div class="col-6 col-md-4 col-lg-3 mb-5">
                     <div class="card h-100 border-0 custom-card">
