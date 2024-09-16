@@ -36,15 +36,15 @@
                 <!-- product sort selector -->
                 <div class="row mb-4">
                     <!--
-                    https://stackoverflow.com/questions/12388954/redirect-form-to-different-url-based-on-select-option-element
+                    https://usefulangle.com/post/81/javascript-change-url-parameters
                     used as reference to sort products with select element
                     -->
                     <select id="sort-selector" class="form-select rounded-0 custom-select" aria-label="sort products">
-                        <option value="{% url 'products' %}" selected>Sort by...</option>
-                        <option value="{% url 'products' %}?sort=publication_date-asc">Publication Date (old to new)</option>
-                        <option value="{% url 'products' %}?sort=publication_date-desc">Publication Date (new to old)</option>
-                        <option value="{% url 'products' %}?sort=price-asc">Price (low to high)</option>
-                        <option value="{% url 'products' %}?sort=price-desc">Price (high to low)</option>
+                        <option selected disabled>Sort by...</option>
+                        <option value="publication_date-asc" {% if sort == 'publication_date-asc' %}selected{% endif %}>Publication Date (old to new)</option>
+                        <option value="publication_date-desc" {% if sort == 'publication_date-desc' %}selected{% endif %}>Publication Date (new to old)</option>
+                        <option value="price-asc" {% if sort == 'price-asc' %}selected{% endif %}>Price (low to high)</option>
+                        <option value="price-desc" {% if sort == 'price-desc' %}selected{% endif %}>Price (high to low)</option>
                     </select>
                 </div>
                 {% for product in products %}

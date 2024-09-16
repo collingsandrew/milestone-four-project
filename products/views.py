@@ -30,6 +30,7 @@ def all_products(request):
                 sort_field = f'-{sort_field}'
 
             products = products.order_by(sort_field)
+            sort = sortkey
 
         # filter new releases
         if 'is_new_release' in request.GET:
@@ -78,6 +79,7 @@ def all_products(request):
         'current_categories': categories,
         'is_favourite': is_favourite,
         'is_new_release': is_new_release,
+        'sort': sort,
     }
 
     return render(request, 'products/products.html', context)

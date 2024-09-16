@@ -1,5 +1,5 @@
 /**
- https://stackoverflow.com/questions/12388954/redirect-form-to-different-url-based-on-select-option-element
+ https://usefulangle.com/post/81/javascript-change-url-parameters
  used as reference to sort products with select element
 */
 document.addEventListener('DOMContentLoaded', function() {
@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
-            window.location.href = sortSelect.value;
+            const selectedValue = sortSelect.value;
+            const currentUrl = new URL(window.location.href);
+            
+            currentUrl.searchParams.set('sort', selectedValue);
+
+            window.location.href = currentUrl.toString();
         });
     }
 });
