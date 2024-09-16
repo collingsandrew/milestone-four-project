@@ -33,13 +33,20 @@
     <div>
         <div class="col-10 col-lg-8 mx-auto custom-col">
             <div class="row">
-                <!-- product sort selector -->
-                <div class="row mb-4">
+                <!-- product counter -->
+                <div class="row mb-5">
+                    <p class="text-muted text-start col-8">
+                        {% if search_term or current_categories %}
+                            <span><a href="{% url 'products' %}">All books</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Results{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                    <!-- product sort selector -->
                     <!--
                     https://usefulangle.com/post/81/javascript-change-url-parameters
                     used as reference to sort products with select element
                     -->
-                    <select id="sort-selector" class="form-select rounded-0 custom-select" aria-label="sort products">
+                    <select id="sort-selector" class="form-select rounded-0 custom-select col" aria-label="sort products">
                         <option selected disabled>Sort by...</option>
                         <option value="publication_date-asc" {% if sort == 'publication_date-asc' %}selected{% endif %}>Publication Date (old to new)</option>
                         <option value="publication_date-desc" {% if sort == 'publication_date-desc' %}selected{% endif %}>Publication Date (new to old)</option>
