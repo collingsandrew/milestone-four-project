@@ -19,6 +19,10 @@
     text-overflow: ellipsis;  
 }
 
+.custom-select {
+    width: auto;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;

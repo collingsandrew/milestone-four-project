@@ -56,7 +56,7 @@
             </a>
           </div>
 
-          <div class="col d-flex justify-content-end align-items-center">
+          <div class="col d-flex justify-content-end align-items-center mt-3">
             <ul class="list-inline">
               <!-- account link and dropdown menu -->
               <li class="list-inline-item dropdown">
@@ -65,7 +65,7 @@
                   <div>
                     <i class="fa-solid fa-circle-user fs-4"></i>
                   </div>
-                  <p class="my-0 fs-5">Account</p>
+                  <p class="my-0">Account</p>
                 </a>
                 <div class="dropdown-menu rounded-0" aria-labelledby="user-options">
                   {% if request.user.is_authenticated %}
@@ -88,7 +88,7 @@
                   <div>
                     <i class="fa-solid fa-bag-shopping fs-4"></i>
                   </div>
-                  <p class="my-0 fs-5">
+                  <p class="my-0">
                     {% if grand_total %}
                     ${{ grand_total|floatformat:2 }}
                     {% else %}
@@ -158,10 +158,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link fs-5 me-4" href="{% url 'products' %}?is_new_release=true" aria-label="view new releases">New Releases</a>
+                <a class="nav-link me-4" href="{% url 'products' %}?is_new_release=true" aria-label="view new releases">New Releases</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link fs-5 me-4 " href="#" id="books-link" data-bs-toggle="dropdown" aria-expanded="false" aria-label="view books">Books</a>
+                <a class="nav-link me-4 " href="#" id="books-link" data-bs-toggle="dropdown" aria-expanded="false" aria-label="view books">Books</a>
                 <div class="dropdown-menu rounded-0" aria-labelledby="books-link">
                   <a href="{% url 'products' %}" class="dropdown-item">All Books</a>
                   <a href="{% url 'products' %}?category=fiction" class="dropdown-item">Fiction</a>
@@ -175,11 +175,11 @@
               </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link fs-5" href="{% url 'products' %}?is_favourite=true" aria-label="view our favourites">Our Favourites</a>
+                <a class="nav-link" href="{% url 'products' %}?is_favourite=true" aria-label="view our favourites">Our Favourites</a>
               </li>
             </ul>
             <form class="d-flex ms-auto" method="GET" action="{% url 'products' %}" role="search">
-              <input class="form-control rounded-0 fs-5" name="q" type="search" placeholder="Search for books" aria-label="Search">
+              <input class="form-control rounded-0" name="q" type="search" placeholder="Search for books" aria-label="Search">
               <button class="btn btn-custom" type="submit" aria-label="search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
@@ -190,7 +190,7 @@
       <!-- delivery message banner -->
       <div id="delivery-banner" class="row text-center">
         <div class="col">
-            <p class=" fs-5 my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</p>                
+            <p class="my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</p>                
         </div>
       </div>
 
@@ -202,9 +202,9 @@
     <div class="message-container"></div>
     {% endif %}
 
-    <div class="container-fluid col-11 col-lg-6 d-flex flex-column justify-content-center mt-3 mb-5">
+    <div class="container-fluid col-11 col-lg-6 d-flex flex-column justify-content-center mb-4">
     {% block page_header %}
-    {% endblock %}  
+    {% endblock %}
     </div>
 
     {% block content %}
