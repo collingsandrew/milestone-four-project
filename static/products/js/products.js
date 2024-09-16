@@ -3,6 +3,7 @@
  used as reference to sort products with select element
 */
 document.addEventListener('DOMContentLoaded', function() {
+    // sorting functionality
     const sortSelect = document.getElementById('sort-selector');
     
     if (sortSelect) {
@@ -13,6 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
             currentUrl.searchParams.set('sort', selectedValue);
 
             window.location.href = currentUrl.toString();
+        });
+    }
+
+    // scroll to top of page functionality
+    const backToTopLink = document.querySelector('.btt-link');
+    
+    if (backToTopLink) {
+        backToTopLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 });
