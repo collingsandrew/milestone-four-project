@@ -44,7 +44,7 @@
 
     <header class="fixed-top">
 
-      <!-- site heading -->
+      <!-- site heading, only shows on large devices -->
       <div class="container-fluid d-none d-lg-block">
         <div class="row align-items-center">
 
@@ -84,7 +84,7 @@
 
               <!-- bag link -->
               <li class="list-inline-item">
-                <a href="#" class="nav-link text-center mx-2">
+                <a href="{% url 'view_bag' %}" class="nav-link text-center mx-2">
                   <div>
                     <i class="fa-solid fa-bag-shopping fs-4"></i>
                   </div>
@@ -145,7 +145,7 @@
               </li>
 
               <li class="list-inline-item">
-                <a href="#" class="nav-link" aria-label="shopping bag">
+                <a href="{% url 'view_bag' %}" class="nav-link" aria-label="shopping bag">
                   <div>
                     <i class="fa-solid fa-bag-shopping fs-4"></i>
                   </div>
@@ -190,7 +190,7 @@
       <!-- delivery message banner -->
       <div id="delivery-banner" class="row text-center">
         <div class="col">
-            <p class="my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</p>                
+            <p class="my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</p>                
         </div>
       </div>
 
