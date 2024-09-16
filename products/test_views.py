@@ -2,6 +2,8 @@ from django.test import TestCase
 from django.urls import reverse
 from django.contrib.messages import get_messages
 from django.db.models import Q
+from datetime import date, timedelta
+
 from .models import Product, Category
 
 
@@ -114,6 +116,51 @@ class TestProductViews(TestCase):
         test products filtering by isbn
         """
         response = self.client.get(self.url, {'q': '1234567890'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Active Product 1')
+        self.assertNotContains(response, 'Active Product 2')
+
+    def test_sort_products(self):
+        """
+        test sorting products by price in ascending and descending order
+        """
+        response_asc = self.client.get(self.url, {'sort': 'price-asc'})
+        self.assertEqual(response_asc.status_code, 200)
+        products_asc = response_asc.context['products']
+        self.assertLessEqual(products_asc[0].price, products_asc[1].price)
+
+        response_desc = self.client.get(self.url, {'sort': 'price-desc'})
+        self.assertEqual(response_desc.status_code, 200)
+        products_desc = response_desc.context['products']
+        self.assertGreaterEqual(products_desc[0].price, products_desc[1].price)
+
+    def test_filter_favorite_products(self):
+        """
+        test filtering favorite products
+        """
+        # set product 1 as favourite
+        self.active_product_1.is_favourite = True
+        self.active_product_1.save()
+
+        # check if product 1 is included in filter and product 2 is not
+        response = self.client.get(self.url, {'is_favourite': 'true'})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Active Product 1')
+        self.assertNotContains(response, 'Active Product 2')
+
+    def test_filter_new_release(self):
+        """
+        test filtering products released within 60 days
+        """
+        # set product 1 publication date set for 30 days ago
+        self.active_product_1.publication_date = date.today() - timedelta(days=30)
+        self.active_product_1.save()
+        # set product 2 publication date for 90 days ago
+        self.active_product_2.publication_date = date.today() - timedelta(days=90)
+        self.active_product_2.save()
+
+        # check if product 1 is included in filter and product 2 is not
+        response = self.client.get(self.url, {'is_new_release': 'true'})
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Active Product 1')
         self.assertNotContains(response, 'Active Product 2')
