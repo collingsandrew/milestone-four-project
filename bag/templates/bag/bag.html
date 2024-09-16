@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+<h2 class="page-heading">
+    Your Shopping Bag
+</h2>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container mb-2">
+    <div class="col">
+        <a href="{% url 'products' %}">
+            <button class="btn btn-custom mb-3">
+                <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Continue Shopping</span>
+            </button>
+        </a>
+        {% if bag_items %}
+        <div class="table-responsive"></div>
+        {% else %}
+        <p class="lead">Your bag is empty.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
