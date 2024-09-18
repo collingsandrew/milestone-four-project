@@ -40,11 +40,3 @@
 .product-detail-img {
     max-height: 450px;
 }
-
-/* media queries */
-
-@media (min-width: 1440px) {
-    .custom-col {
-        width: 50%;
-    }
-}

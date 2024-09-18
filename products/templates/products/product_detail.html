@@ -2,15 +2,27 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'products/products.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container mb-5">
+    <div>
+        <a href="{% url 'products' %}">
+            <button class="btn btn-custom">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Continue Shopping</span>
+            </button>
+        </a>
+    </div>    
+</div>
+<div class="container">
     <div class="row d-flex justify-content-center align-items-start">
         <!-- Product Image Section -->
-        <div class="col-12 col-md-5 col-lg-4 col-xxl-3 d-flex justify-content-center align-items-center mb-5">
+        <div class="col d-flex justify-content-center align-items-center mb-5">
             <div>
                 {% if product.image %}
                     <img class="img-fluid product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -21,7 +33,7 @@
         </div>
 
         <!-- Product Details Section -->
-        <div class="col-12 col-md-6 col-lg-5 mb-5">
+        <div class="col mb-5">
             <div class="d-flex flex-column justify-content-center h-100">
                 <h4 class="mb-1">{{ product.name }}</h4>
                 <p class="mb-1">{{ product.author }}</p>
@@ -31,8 +43,6 @@
                 {% else %}
                     <small class="text-muted">No Rating</small>
                 {% endif %}
-                <hr>
-                {{ product.description }}</p>
                 <hr>
                 <p class="fs-4 mb-1">£{{ product.price }}</p>
                 {% if product.stock >= 10 %}
@@ -60,34 +70,28 @@
                             {% else %}
                             <button class="btn btn-custom me-2" type="submit" value="Add to bag">Add To Bag</button>
                             {% endif %}
-                            <a href="" class="custom-btn-link">
-                                <button class="btn btn-custom">Add To Wishlist</button>
-                            </a>
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">    
                     </div>                
                 </form>
-                <div class="mt-4">
-                    <a href="{% url 'products' %}">
-                        <button class="btn btn-custom mb-3">
-                            <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span>Continue Shopping</span>
-                        </button>
-                    </a>
-                </div>
+                <a href="" class="custom-btn-link mt-2">
+                    <button class="btn btn-custom">Add To Wishlist</button>
+                </a>
             </div>
         </div>
     </div>
     <div class="row d-flex justify-content-center align-items-start">
         <hr>
-        <div class="col-12 col-md-8 col-lg-6 col-xxl-4 mt-3 mb-3 mx-auto">
+        <p>{{ product.description }}</p>
+    </div>
+    <div class="row d-flex justify-content-center align-items-start">
+        <hr>
+        <div class="col mt-3 mb-3 mx-auto">
             <div class="d-flex flex-column justify-content-center h-100">
                 ***Reviews***
             </div>
         </div>
-        <div class="col-12 col-md-4 col-lg-4 mt-3 mb-5">
+        <div class="col mt-3 mb-5">
             <div class="d-flex flex-column justify-content-center h-100">
                 <p>Publisher: {{ product.publisher }}</p>
                 <p>Published: {{ product.publication_date }}</p>
