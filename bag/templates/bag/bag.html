@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
-{% endblock %}
-
 {% block page_header %}
 
 <h2 class="page-heading">
@@ -60,9 +56,18 @@
                     <p class="my-0">{{ item.product.author }}</p>
                     <small class="my-0 text-muted">{{ item.product.format_type }}</small>
                     <p><strong>£{{ item.product.price }}</strong></p>
+                    <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                 </div>
-                <div class="col-4 text-end">
-                    <p class="my-0">{{ item.quantity }}</p>
+                <div class="col-4">
+                    <form action="">
+                        {% csrf_token %}
+                        <div class="form-group w-25">
+                            <div class="input-group">
+                                <input class="form-control rounded-0 qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            </div>
+                        </div>
+                    </form>
+                    <a class="update-link text-info"><small>Update</small></a>
                 </div>
                 <div class="col-2 text-end">
                     <p class="my-0">£{{ item.product.price }}</p>
@@ -76,5 +81,9 @@
         {% endif %}
     </div>
 </div>
+
+{% block postloadjs %}
+<script src="{% static 'js/base.js' %}"></script>
+{% endblock %}
 
 {% endblock %}
