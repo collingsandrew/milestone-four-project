@@ -40,3 +40,8 @@
 .product-detail-img {
     max-height: 450px;
 }
+
+.custom-form-group {
+    width: fit-content;
+    border-radius: 0;
+}

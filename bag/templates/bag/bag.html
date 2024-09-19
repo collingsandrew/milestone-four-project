@@ -31,19 +31,18 @@
         {% if bag_items %}
         <div class="col-12 col-lg-3 float-end mb-5">
             <h5>Order Summary</h5>
-
-            <p class="my-2">*number of items*</p>
+            <p class="my-2">{{ bag_items|length }} {% if bag_items|length == 1 %}item{% else %}items{% endif %}</p>
             <p class="my-2">Subtotal: £{{ total|floatformat:2 }}</p>
             <p class="my-2">Delivery: £{{ delivery|floatformat:2 }}</p>
             <p><strong>Total to pay: £{{ grand_total|floatformat:2 }}</strong></p>
             {% if free_delivery_delta > 0 %}
-                <p class="mb-1">
-                    You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                <p class="mb-2">
+                    You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
                 </p>
             {% endif %}
             <a href="">
                 <button class="btn btn-custom mb-3">
-                    <span class="text-uppercase">Secure Checkout</span>
+                    <span>Secure Checkout</span>
                     <span class="icon">
                         <i class="fas fa-lock"></i>
                     </span>
