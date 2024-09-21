@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
 
@@ -59,7 +60,7 @@
                     <a class="remove-item text-danger" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                 </div>
                 <div class="col-4">
-                    <form action="">
+                    <form class="update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                         {% csrf_token %}
                         <div class="form-group w-25">
                             <div class="input-group">
@@ -70,7 +71,7 @@
                     <a class="update-link text-info"><small>Update</small></a>
                 </div>
                 <div class="col-2 text-end">
-                    <p class="my-0">£{{ item.product.price }}</p>
+                    <p class="my-0">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                 </div>
             </div>
             <hr>
