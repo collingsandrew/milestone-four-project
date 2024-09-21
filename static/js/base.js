@@ -36,3 +36,12 @@ document.querySelectorAll('.remove-item').forEach(function(removeItem) {
         .catch(error => console.error('Error:', error));
     });
 });
+
+/* toasts */
+
+/* credit: Code Institute - Boutique Ado project */
+
+document.querySelectorAll('.toast').forEach(function (toastElement) {
+    let toast = new bootstrap.Toast(toastElement);
+    toast.show();
+  });
