@@ -26,7 +26,7 @@ def add_to_bag(request, item_id):
         messages.error(
             request, 
             f'Sorry, only {product.stock} \
-                of {product.name} are  left in stock'
+                of {product.name} are left in stock'
         )
     else:
         if item_id in list(bag.keys()):
@@ -52,7 +52,7 @@ def adjust_bag(request, item_id):
         messages.error(
             request, 
             f'Sorry, only {product.stock} \
-                of {product.name} are  left in stock'
+                of {product.name} are left in stock'
         )
     else:
         if quantity > 0:
