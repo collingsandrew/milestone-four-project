@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+<h2 class="page-heading">
+    Thank you for your purchase!
+</h2>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div>
+            <a href="{% url 'products' %}">
+                <button class="btn btn-custom mb-3">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Continue Shopping</span>
+                </button>
+            </a>
+        </div>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            <h4>Your order summary is below</h4>
+            <h5>A confirmation email has been sent to {{ order.email }}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+    </div>
+</div>
+
+{% endblock %}
