@@ -93,6 +93,19 @@ class Order(models.Model):
         default=0
     )
 
+    original_bag = models.TextField(
+        null=False,
+        blank=False,
+        default=''
+    )
+
+    stripe_pid = models.CharField(
+        max_length=254,
+        null=False,
+        blank=False,
+        default=''
+    )
+
     def _generate_order_number(self):
         """
         generate a random, unique order number using UUID
