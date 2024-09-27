@@ -133,6 +133,16 @@ footer {
     border: 1px solid #3C3A36;
 }
 
+#payment-form select, select option {
+    color: #3C3A36;
+    border: 1px solid #3C3A36;
+}
+
+#payment-form select:invalid,
+select option[value=""] {
+    color: #aab7c4;
+}
+
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
