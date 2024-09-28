@@ -263,6 +263,30 @@ input[name='q'] {
     border-radius: 0%;
 }
 
+/* profile */
+
+.profile-form-input {
+    border-color: #3C3A36;
+    color: #3C3A36;
+}
+
+.profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#profile-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #000;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
 /* allauth */
 
 .allauth-form-inner-content p {
