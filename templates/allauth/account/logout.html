@@ -3,10 +3,10 @@
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    <h2 class="page-heading">
         {% trans "Sign Out" %}
-    {% endelement %}
+    </h2>
     {% element p %}
         {% trans 'Are you sure you want to sign out?' %}
     {% endelement %}
@@ -22,4 +22,4 @@
             {% endelement %}
         {% endslot %}
     {% endelement %}
-{% endblock content %}
+{% endblock inner_content %}

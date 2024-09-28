@@ -4,10 +4,10 @@
 {% block head_title %}
     {% trans "Email Address" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    <h2 class="page-heading">
         {% trans "Email Address" %}
-    {% endelement %}
+    </h2>
     {% if not emailaddresses %}
         {% include "account/snippets/warn_no_email.html" %}
     {% endif %}
@@ -65,4 +65,4 @@
             <input type="hidden" name="email" value="{{ new_emailaddress.email }}">
         </form>
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

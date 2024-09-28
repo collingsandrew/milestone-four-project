@@ -1,1 +1,14 @@
 {% extends "allauth/layouts/entrance.html" %}
+
+{% block content %}
+    <div class="container mb-5">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <div class="allauth-form-inner-content col-12 col-md-6">
+                    {% block inner_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

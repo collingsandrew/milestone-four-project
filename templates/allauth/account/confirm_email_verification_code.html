@@ -4,10 +4,10 @@
 {% block head_title %}
     {% translate "Email Verification" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    <h2 class="page-heading">
         {% translate "Enter Email Verification Code" %}
-    {% endelement %}
+    </h2>
     {% setvar email_link %}
         <a href="mailto:{{ email }}">{{ email }}</a>
     {% endsetvar %}
@@ -33,4 +33,4 @@
             {% translate "Cancel" %}
         {% endelement %}
     {% endelement %}
-{% endblock content %}
+{% endblock inner_content %}

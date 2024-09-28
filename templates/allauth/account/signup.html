@@ -3,10 +3,10 @@
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    <h2 class="page-heading">
         {% trans "Sign Up" %}
-    {% endelement %}
+    </h2>
     {% setvar link %}
         <a href="{{ login_url }}">
         {% endsetvar %}
@@ -22,6 +22,7 @@
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form unlabeled=True %}
+                {{ form|crispy }}
                 {% endelement %}
                 {{ redirect_field }}
             {% endslot %}
@@ -35,4 +36,4 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

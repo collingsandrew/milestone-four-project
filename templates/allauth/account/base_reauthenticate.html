@@ -4,10 +4,10 @@
 {% block head_title %}
     {% trans "Confirm Access" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
+{% block inner_content %}
+    <h2 class="page-heading">
         {% trans "Confirm Access" %}
-    {% endelement %}
+    <h2 class="page-heading">
     {% element p %}
         {% blocktranslate %}Please reauthenticate to safeguard your account.{% endblocktranslate %}
     {% endelement %}
@@ -26,4 +26,4 @@
             {% endfor %}
         {% endelement %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}

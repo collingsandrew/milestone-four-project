@@ -197,6 +197,14 @@ a:hover {
     text-decoration: underline;
 }
 
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+input[name='q'] {
+    border: #3C3A36 1px solid;
+}
+
 /* products page */
 
 .small-card-img {
@@ -253,6 +261,61 @@ a:hover {
     height: 140px;
     object-fit: contain;
     border-radius: 0%;
+}
+
+/* allauth */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem;
+    color: #6c757d;
+}
+
+.allauth-form-inner-content input {
+    border-radius: 0;
+    border: #3C3A36 1px solid;
+    padding: .375rem;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+    background-color: #3C3A36;
+    color: white;
+    border: #3C3A36 2px solid;
+    width: fit-content;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+    border: #3C3A36 2px solid;
+    background-color: #F5F7F6;
+    color: #3C3A36;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
 }
 
 /* media queries */

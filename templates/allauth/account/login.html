@@ -2,12 +2,12 @@
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
-    {% trans "Sign In" %}
+    {% trans "Log In" %}
 {% endblock head_title %}
-{% block content %}
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
+{% block inner_content %}
+    <h2 class="page-heading">
+        {% trans "Log In" %}
+    </h2>
     {% if not SOCIALACCOUNT_ONLY %}
         {% setvar link %}
             <a href="{{ signup_url }}">
@@ -16,20 +16,21 @@
             </a>
         {% endsetvar %}
         {% element p %}
-            {% blocktranslate %}If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
+            {% blocktranslate %}If you have not created an account yet, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktranslate %}
         {% endelement %}
         {% url 'account_login' as login_url %}
         {% element form form=form method="post" action=login_url tags="entrance,login" %}
             {% slot body %}
                 {% csrf_token %}
                 {% element fields form=form unlabeled=True %}
+                {{ form|crispy }}
                 {% endelement %}
                 {{ redirect_field }}
             {% endslot %}
             {% slot actions %}
-                {% element button type="submit" tags="prominent,login" %}
-                    {% trans "Sign In" %}
-                {% endelement %}
+                <button type="submit" tags="prominent,login">
+                    Log In
+                </button>
             {% endslot %}
         {% endelement %}
     {% endif %}
@@ -52,7 +53,7 @@
     {% if SOCIALACCOUNT_ENABLED %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
     {% endif %}
-{% endblock content %}
+{% endblock inner_content %}
 {% block extra_body %}
     {{ block.super }}
     {% if PASSKEY_LOGIN_ENABLED %}
