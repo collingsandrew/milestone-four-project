@@ -287,6 +287,22 @@ input[name='q'] {
     color: #aab7c4;
 }
 
+.order-history th {
+    background-color: #F5F7F6;
+    color: #3C3A36;
+}
+
+.order-history td {
+    background-color: #F5F7F6;
+    color: #3C3A36;
+    padding: 10px;
+}
+
+.order-history {
+    max-height: 416px;
+    overflow-y: auto;
+}
+
 /* allauth */
 
 .allauth-form-inner-content p {

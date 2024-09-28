@@ -14,6 +14,17 @@
 <div class="container">
     <div class="row">
         <div>
+            {% if from_profile %}
+            <a href="{% url 'profile' %}">
+                <button class="btn btn-custom mb-3">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Back to Profile</span>
+                </button>
+            </a>
+            {% else %}
+
             <a href="{% url 'products' %}">
                 <button class="btn btn-custom mb-3">
                     <span class="icon">
@@ -22,6 +33,7 @@
                     <span>Continue Shopping</span>
                 </button>
             </a>
+            {% endif %}
         </div>
         <hr>
     </div>
