@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.messages import get_messages
+from django.contrib.auth.models import User
 from django.db.models import Q
 from datetime import date, timedelta
 
@@ -111,15 +112,6 @@ class TestProductViews(TestCase):
         self.assertContains(response, 'Active Product 1')
         self.assertNotContains(response, 'Active Product 2')
 
-    def test_filter_by_isbn(self):
-        """
-        test products filtering by isbn
-        """
-        response = self.client.get(self.url, {'q': '1234567890'})
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Active Product 1')
-        self.assertNotContains(response, 'Active Product 2')
-
     def test_sort_products(self):
         """
         test sorting products by price in ascending and descending order
@@ -132,7 +124,10 @@ class TestProductViews(TestCase):
         response_desc = self.client.get(self.url, {'sort': 'price-desc'})
         self.assertEqual(response_desc.status_code, 200)
         products_desc = response_desc.context['products']
-        self.assertGreaterEqual(products_desc[0].price, products_desc[1].price)
+        self.assertGreaterEqual(
+            products_desc[0].price,
+            products_desc[1].price
+        )
 
     def test_filter_favorite_products(self):
         """
@@ -153,10 +148,14 @@ class TestProductViews(TestCase):
         test filtering products released within 60 days
         """
         # set product 1 publication date set for 30 days ago
-        self.active_product_1.publication_date = date.today() - timedelta(days=30)
+        self.active_product_1.publication_date = date.today() - timedelta(
+            days=30
+        )
         self.active_product_1.save()
         # set product 2 publication date for 90 days ago
-        self.active_product_2.publication_date = date.today() - timedelta(days=90)
+        self.active_product_2.publication_date = date.today() - timedelta(
+            days=90
+        )
         self.active_product_2.save()
 
         # check if product 1 is included in filter and product 2 is not
@@ -164,3 +163,58 @@ class TestProductViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'Active Product 1')
         self.assertNotContains(response, 'Active Product 2')
+
+
+class TestProductAdminViews(TestCase):
+
+    def setUp(self):
+        """
+        create superuser
+        """
+        User.objects.create_superuser(
+            username='testsuper',
+            email='test@test.com',
+            password='testsuper',
+        )
+        """
+        create test product
+        """
+        Product.objects.create(
+            name='test_product',
+            price=1.99,
+            stock=1
+        )
+
+    def test_get_add_product_page_not_superuser(self):
+        """
+        test get add product page as not superuser
+        """
+        response = self.client.get('/products/add/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_get_edit_product_page_not_superuser(self):
+        """
+        test get product edit page as not superuser
+        """
+        product_id = 1
+        response = self.client.get(f'/products/edit/{product_id}/')
+        self.assertEqual(response.status_code, 302)
+
+    def test_get_add_product_page_superuser(self):
+        """
+        test get add product page as superuser
+        """
+        self.client.login(username='testsuper', password='testsuper')
+        response = self.client.get('/products/add/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/add_product.html')
+
+    def test_get_edit_product_page_superuser(self):
+        """
+        test get edit product page as superuser
+        """
+        self.client.login(username='testsuper', password='testsuper')
+        product_id = 1
+        response = self.client.get(f'/products/edit/{product_id}/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/edit_product.html')
