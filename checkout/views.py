@@ -62,6 +62,23 @@ def checkout(request):
             for item_id, quantity in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
+
+                    """
+                    stock control -
+                    check if there is enough stock of the product and 
+                    if not direct back to bag with an error message
+                    """
+                    if product.stock < quantity:
+                        messages.error(request, (
+                            f"Sorry, only {product.stock} \
+                            of {product.name} are left in stock."
+                        ))
+                        order.delete()
+                        return redirect(reverse('view_bag'))
+                    # update product stock in database
+                    product.stock -= quantity
+                    product.save()
+
                     order_line_item = OrderLineItem(
                         order=order,
                         product=product,
