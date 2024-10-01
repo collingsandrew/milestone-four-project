@@ -20,12 +20,14 @@ class TestProductForm(TestCase):
         """
         form = ProductForm()
 
+        # check the category field renders the friendly name/s
         category_field = form.fields['category']
         self.assertEqual(
             category_field.choices,
             [(self.category.id, self.category.get_friendly_name())]
         )
 
+        # check the fields have the specified classes
         for field_name, field in form.fields.items():
             self.assertIn(
                 'border-black rounded-0',

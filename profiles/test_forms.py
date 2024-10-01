@@ -22,6 +22,7 @@ class TestUserProfileForm(TestCase):
         self.assertTrue(
             form.fields['default_phone_number'].widget.attrs['autofocus'])
 
+        # check if placeholders are shown
         for field in form.fields:
             if field != 'default_country':
                 if form.fields[field].required:
@@ -37,9 +38,11 @@ class TestUserProfileForm(TestCase):
                         placeholder
                     )
 
+            # check if specified classes are present
             self.assertEqual(
                 form.fields[field].widget.attrs['class'],
                 'rounded-0 profile-form-input'
             )
 
+            # check that the fields have no labels
             self.assertFalse(form.fields[field].label)

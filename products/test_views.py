@@ -60,11 +60,13 @@ class TestProductViews(TestCase):
 
         products = response.context['products']
 
+        # check the products in the response are active
         self.assertEqual(len(products), 2)
         for product in products:
             self.assertTrue(product.is_active)
 
         product_names = [product.name for product in products]
+        # check the inactive product is not in the product_names list
         self.assertNotIn('Inactive Product', product_names)
 
     def test_get_products_page(self):
@@ -98,18 +100,24 @@ class TestProductViews(TestCase):
         """
         test products filtering by category
         """
+        # filter products by specific category
         response = self.client.get(self.url, {'category': 'Fiction'})
         self.assertEqual(response.status_code, 200)
+        # check the response contains the expected product
         self.assertContains(response, 'Active Product 1')
+        # check the response does not contain an unexpected product
         self.assertNotContains(response, 'Active Product 2')
     
     def test_filter_by_search_query(self):
         """
         test products filtering by search query
         """
+        # search for author 1
         response = self.client.get(self.url, {'q': 'Author 1'})
         self.assertEqual(response.status_code, 200)
+        # check the response contains the expected product
         self.assertContains(response, 'Active Product 1')
+        # check the response does not contain an unexpected product
         self.assertNotContains(response, 'Active Product 2')
 
     def test_sort_products(self):

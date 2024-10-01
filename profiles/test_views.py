@@ -56,8 +56,10 @@ class TestProfileViews(TestCase):
             'default_street_address2': 'test street 2',
             'default_county': 'test county',
         }
+        # submit form
         response = self.client.post(reverse('profile'), data)
         self.profile.refresh_from_db()
+        # check postcode equals new value
         self.assertEqual(self.profile.default_postcode, '12345')
         self.assertContains(response, 'Profile updated successfully')
 
@@ -65,7 +67,9 @@ class TestProfileViews(TestCase):
         """
         test get order history
         """
+        # get order 12345
         response = self.client.get(reverse('order_history', args=['12345']))
+        # check http response and directed to correct template
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'checkout/checkout_success.html')
         self.assertContains(
