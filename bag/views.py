@@ -30,7 +30,14 @@ def add_to_bag(request, item_id):
         )
     else:
         if item_id in list(bag.keys()):
-            bag[item_id] += quantity
+            if bag[item_id] >= product.stock:
+                messages.error(
+                    request,
+                    f'Sorry, only {product.stock} \
+                of {product.name} are left in stock'
+                )
+            else:
+                bag[item_id] += quantity
         else:
             bag[item_id] = quantity
             messages.success(request, f'Added {product.name} to your bag')
