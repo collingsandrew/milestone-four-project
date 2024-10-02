@@ -74,9 +74,11 @@
                     </div>                
                 </form>
                 {% endif %}
-                <a href="" class="custom-btn-link mt-2">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'add_to_wishlist' product.id %}" class="custom-btn-link mt-2">
                     <button class="btn btn-custom">Add To Wishlist</button>
                 </a>
+                {% endif %}
                 {% if request.user.is_superuser %}
                 <hr>
                 <small>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_js %}
+<script src="{% static 'products/js/products.js' %}"></script>
+{% endblock %}
+
+{% block page_header %}
+
+<h2 class="page-heading">
+    Your Wishlist
+</h2>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container mb-2">
+    <div class="row">
+        <div>
+            <a href="{% url 'products' %}">
+                <button class="btn btn-custom mb-3">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Continue Shopping</span>
+                </button>
+            </a>
+        </div>
+        <hr>
+        {% if wishlist_items %}
+        {% for product in wishlist_items %}
+        <div class="col-6 col-md-4 col-lg-3 mb-5">
+            <div class="card h-100 border-0 custom-card">
+                {% if product.image %}
+                <a href="{% url 'product_detail' product.id %}" class="mx-auto" aria-label="go to product details">
+                    <img class="card-img-top img-fluid small-card-img" src="{{ product.image.url }}"
+                        alt="{{ product.name }}">
+                </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}" class="mx-auto" aria-label="go to product details">
+                    <img class="card-img-top img-fluid small-card-img" src="{{ MEDIA_URL }}no-image.webp"
+                        alt="{{ product.name }}">
+                </a>
+                {% endif %}
+                <div class="card-body pb-0 text-center">
+                    <a href="{% url 'product_detail' product.id %}" class="products-name-link"
+                        aria-label="go to product details">
+                        <h5 class="mb-0 truncate">{{ product.name }}</h5>
+                    </a>
+                    <small class="mb-0">{{ product.author }}</small>
+                </div>
+                <div class="card-footer pt-0 border-0 text-center custom-card">
+                    <div class="row">
+                        <div class="col">
+                            <p class="mb-0 font-weight-bold">£{{ product.price }}</p>
+                            <small class="text-muted">{{ product.format_type }}</small><br>
+                            {% if product.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>"Rating"</small>
+                            {% else %}
+                            <small class="text-muted">No Rating</small>
+                            {% endif %}
+                            {% if request.user.is_superuser %}
+                            <hr>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="{% url 'remove_from_wishlist' product.id %}"><button class="btn btn-custom">Remove from Wishlist</button></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="lead">Your wishlist is empty.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
