@@ -5,6 +5,7 @@ from django.db.models import Q
 from datetime import date, timedelta
 
 from .models import Product, Category
+from wishlist.models import Wishlist
 from .forms import ProductForm
 
 
@@ -95,8 +96,13 @@ def product_detail(request, product_id):
     # filter only active products
     product = get_object_or_404(Product, id=product_id, is_active=True)
 
+    wishlist = None
+    if request.user.is_authenticated:
+        wishlist = Wishlist.objects.filter(user_profile=request.user.userprofile).first()
+
     context = {
         'product': product,
+        'wishlist': wishlist,
     }
 
     return render(request, 'products/product_detail.html', context)
