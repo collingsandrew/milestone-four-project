@@ -58,7 +58,12 @@ form.addEventListener('submit', function(ev) {
     card.update({ 'disabled': true });
     document.getElementById('submit-button').setAttribute('disabled', true);
 
-    let saveInfo = document.getElementById('id-save-info').checked;
+    let saveInfo = null;
+    let saveInfoCheckbox = document.getElementById('id-save-info');
+
+    if (saveInfoCheckbox) {
+        saveInfo = saveInfoCheckbox.checked;
+    }
     // From using {% csrf_token %} in the form
     let csrfToken = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
     let postData = {
