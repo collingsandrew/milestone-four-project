@@ -33,11 +33,11 @@
                 <div class="mb-5 text-center">
                     <div class="col-12">
                         <p class="text-muted">
-                        {% if search_term or current_categories %}
-                        <span><a href="{% url 'products' %}">All books</a> | </span>
-                        {% endif %}
-                        {{ products|length }} Results{% if search_term %} found for
-                        <strong>"{{ search_term }}"</strong>{% endif %}
+                            {% if search_term or current_categories %}
+                            <span><a href="{% url 'products' %}">All books</a> | </span>
+                            {% endif %}
+                            {{ products|length }} Results{% if search_term %} found for
+                            <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
                     <!-- product sort selector -->

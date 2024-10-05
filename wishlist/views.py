@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -57,7 +57,7 @@ def add_to_wishlist(request, product_id):
             f'Added {product.name} to your wishlist.'
         )
     
-    return redirect('view_wishlist')
+    return redirect(request.META['HTTP_REFERER'])
 
 
 @login_required
