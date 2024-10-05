@@ -76,14 +76,14 @@
                 {% endif %}
                 {% if request.user.is_authenticated %}
                 {% if product in wishlist.products.all %}
-                <p class="mt-2">This item is in your wishlist!</p>
+                <p class="mt-2">This book is in your wishlist!</p>
                 {% else %}
                 <a href="{% url 'add_to_wishlist' product.id %}" class="custom-btn-link mt-2">
                     <button class="btn btn-custom">Add To Wishlist</button>
                 </a>
                 {% endif %}
                 {% else %}
-                <p class="mt-2">Register for an account to add this to your wishlist!</p>
+                <p class="mt-2">Register for an account to add this book to your wishlist!</p>
                 {% endif %}
                 {% if request.user.is_superuser %}
                 <hr>

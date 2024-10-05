@@ -22,7 +22,11 @@
             <div class="mb-3 text-center">
                 <div class="col-12">
                     <p class="text-muted">
-                        You have {{ wishlist_items|length }} items in your wishlist
+                        {% if wishlist_items|length == 1 %}
+                        You have {{ wishlist_items|length }} book in your wishlist
+                        {% else %}
+                        You have {{ wishlist_items|length }} books in your wishlist
+                        {% endif %}
                     </p>
                 </div>
                 <hr>
