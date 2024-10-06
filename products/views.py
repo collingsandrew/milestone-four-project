@@ -6,7 +6,7 @@ from datetime import date, timedelta
 
 from .models import Product, Category
 from wishlist.models import Wishlist
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
@@ -98,7 +98,9 @@ def product_detail(request, product_id):
 
     wishlist = None
     if request.user.is_authenticated:
-        wishlist = Wishlist.objects.filter(user_profile=request.user.userprofile).first()
+        wishlist = Wishlist.objects.filter(
+            user_profile=request.user.userprofile
+            ).first()
 
     context = {
         'product': product,
@@ -110,7 +112,9 @@ def product_detail(request, product_id):
 
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """
+    Add a product to the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -139,7 +143,9 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
-    """ Edit a product in the store """
+    """
+    Edit a product in the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -178,7 +184,9 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
-    """ Delete a product from the store """
+    """
+    Delete a product from the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -187,3 +195,42 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+
+@login_required
+def add_review(request, product_id):
+    """
+    add a review for a product
+    """
+    product = get_object_or_404(Product, id=product_id)
+    if not request.user.is_authenticated:        
+        messages.warning(
+            request,
+            'Please register/login to leave a review'
+        )
+
+        return redirect(reverse('product_detail', args=[product_id]))
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user = request.user
+            review.product = product
+            review.save()
+            messages.success(
+                request,
+                'Review submitted'
+            )
+            
+            return redirect(reverse('product_detail', args=[product_id]))
+    else:
+        form = ReviewForm()
+
+    template = 'add_review.html'
+    context = {
+        'form': form,
+        'product': product
+    }
+    
+    return render(request, template, context)

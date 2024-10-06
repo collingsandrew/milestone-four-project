@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Category(models.Model):
@@ -24,6 +26,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+
     category = models.ForeignKey(
         'Category',
         on_delete=models.SET_NULL,
@@ -126,3 +129,37 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='review'
+    )
+
+    review_title = models.CharField(
+        max_length=255
+    )
+
+    review_text = models.TextField()
+
+    rating = models.IntegerField(
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(5)
+        ]
+    )
+
+    review_date = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    def __str__(self):
+        return f"{self.user.username}'s review for {self.product.name}"
