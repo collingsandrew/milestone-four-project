@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+<h2 class="page-heading">
+    Add A Review
+</h2>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="text-center">
+            <h5>Add a review and rating for {{ product.name }}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <div class="col-12 col-lg-6">
+                <form action="{% url 'add_review' product.id %}" method="POST" class="form mb-5" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-end">
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-custom">Cancel</a>
+                        <button class="btn btn-custom" type="submit">Add Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
