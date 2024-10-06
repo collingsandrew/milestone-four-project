@@ -96,6 +96,15 @@ def product_detail(request, product_id):
     # filter only active products
     product = get_object_or_404(Product, id=product_id, is_active=True)
 
+    reviews = product.review.all()
+
+    # work out the average of all of the ratings for the product
+    if reviews.exists():
+        total_rating = sum(review.rating for review in reviews)
+        average_rating = total_rating / reviews.count()
+    else:
+        average_rating = 'No Rating'
+
     wishlist = None
     if request.user.is_authenticated:
         wishlist = Wishlist.objects.filter(
@@ -105,6 +114,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'wishlist': wishlist,
+        'average_rating': average_rating,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -237,7 +247,7 @@ def add_review(request, product_id):
     else:
         form = ReviewForm()
 
-    template = 'add_review.html'
+    template = 'products/add_review.html'
     context = {
         'form': form,
         'product': product

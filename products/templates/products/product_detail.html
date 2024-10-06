@@ -38,11 +38,7 @@
                 <h4 class="mb-1">{{ product.name }}</h4>
                 <p class="mb-1">{{ product.author }}</p>
                 <small class="mb-3">{{ product.format_type }}</small>
-                {% if product.rating %}
-                    <small class="text-muted"><i class="fas fa-star me-1"></i>"rating"</small>
-                {% else %}
-                    <small class="text-muted">No Rating</small>
-                {% endif %}
+                <small class="text-muted"><i class="fas fa-star me-1 text-warning"></i>{{ average_rating }}</small>
                 <hr>
                 <p class="fs-4 mb-1">£{{ product.price }}</p>
                 {% if product.stock >= 10 %}
@@ -76,7 +72,7 @@
                 {% endif %}
                 {% if request.user.is_authenticated %}
                 {% if product in wishlist.products.all %}
-                <p class="mt-2">This book is in your wishlist!</p>
+                <p class="mt-2">This book is in your wishlist</p>
                 {% else %}
                 <a href="{% url 'add_to_wishlist' product.id %}" class="custom-btn-link mt-2">
                     <button class="btn btn-custom">Add To Wishlist</button>
@@ -114,8 +110,8 @@
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center align-items-start mb-3">
-        <div class="col-10 col-md p-3 border shadow-sm">
+    <div class="row d-flex justify-content-center align-items-start mb-3 mx-auto">
+        <div class="col-12 col-md-10 p-3 border shadow-sm">
             <p>{{ product.description }}</p>
         </div>
     </div>
@@ -124,6 +120,7 @@
         <div class="col-12 col-md mt-1">
             <hr>
             <div class="d-flex flex-column justify-content-center h-100">
+                <h5>Additional Information:</h5>
                 <p>Publisher: {{ product.publisher }}</p>
                 <p>Published: {{ product.publication_date }}</p>
                 {% if product.edition %}
