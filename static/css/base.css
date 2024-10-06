@@ -178,6 +178,9 @@ select option[value=""] {
     border: #3C3A36 2px solid;
     border-radius: 0;
     width: fit-content;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .btn-custom:hover {

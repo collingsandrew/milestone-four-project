@@ -20,9 +20,9 @@
     </div>    
 </div>
 <div class="container">
-    <div class="row d-flex justify-content-center align-items-start">
+    <div class="row d-flex justify-content-center align-items-start mb-3">
         <!-- Product Image Section -->
-        <div class="col d-flex justify-content-center align-items-center mb-5">
+        <div class="col d-flex justify-content-center align-items-center">
             <div>
                 {% if product.image %}
                     <img class="img-fluid product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Product Details Section -->
-        <div class="col mb-5">
+        <div class="col">
             <div class="d-flex flex-column justify-content-center h-100">
                 <h4 class="mb-1">{{ product.name }}</h4>
                 <p class="mb-1">{{ product.author }}</p>
@@ -114,18 +114,15 @@
             </div>
         </div>
     </div>
-    <div class="row d-flex justify-content-center align-items-start">
-        <hr>
-        <p>{{ product.description }}</p>
-    </div>
-    <div class="row d-flex justify-content-center align-items-start">
-        <hr>
-        <div class="col mt-3 mb-3 mx-auto">
-            <div class="d-flex flex-column justify-content-center h-100">
-                ***Reviews***
-            </div>
+    <div class="row d-flex justify-content-center align-items-start mb-3">
+        <div class="col-10 col-md p-3 border shadow-sm">
+            <p>{{ product.description }}</p>
         </div>
-        <div class="col mt-3 mb-5">
+    </div>
+    <div class="row d-flex justify-content-center align-items-start mb-5">
+        <!-- product information -->
+        <div class="col-12 col-md mt-1">
+            <hr>
             <div class="d-flex flex-column justify-content-center h-100">
                 <p>Publisher: {{ product.publisher }}</p>
                 <p>Published: {{ product.publication_date }}</p>
@@ -136,6 +133,36 @@
                 <p>Number of pages: {{ product.num_of_pages }}</p>
                 <p>Weight: {{ product.weight }}</p>
                 <p>Dimensions: {{ product.dimensions }}</p>
+            </div>
+            <hr>
+        </div>
+        <!-- product reviews -->
+        <div class="col-12 col-md mt-1 mb-3 mx-auto">
+            <div class="d-flex flex-column justify-content-center h-100">
+                <h5>Reviews</h5>
+                {% if request.user.is_authenticated %}
+                <div>
+                    <a href="{% url 'add_review' product.id %}">
+                        <button class="btn btn-custom mb-3">Add a Review</button>
+                    </a>
+                </div>
+                {% else %}
+                    <p class="text-muted">Register/Login to add a review!</p>
+                {% endif %}
+
+                {% for review in product.review.all %}
+                <div class="mb-1 p-3 border shadow-sm">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <small class="text-muted">{{ review.user.username }}</small>
+                        <small class="text-muted">{{ review.review_date|date:"F j, Y" }}</small>
+                    </div>
+                    <h6 class="lead mb-2 fst-italic">"{{ review.review_title }}"</h6>
+                    <p class="mb-1"><strong>Rating:</strong> <span class="text-warning">{{ review.rating }}/5</span></p>
+                    <p class="mb-3">{{ review.review_text }}</p>
+                </div>
+                {% empty %}
+                    <p>No reviews yet. Be the first to review this product!</p>
+                {% endfor %}
             </div>
         </div>
     </div>
