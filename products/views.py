@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from datetime import date, timedelta
 
-from .models import Product, Category
+from .models import Product, Category, Review
 from wishlist.models import Wishlist
 from .forms import ProductForm, ReviewForm
 
@@ -214,6 +214,16 @@ def add_review(request, product_id):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
+            # check if the user has already submitted a review
+            if Review.objects.filter(
+                user=request.user,
+                product=product).exists():
+                messages.error(
+                    request,
+                    "You have already submitted a review for this book"
+                )
+                return redirect(reverse('product_detail', args=[product_id]))
+
             review = form.save(commit=False)
             review.user = request.user
             review.product = product
