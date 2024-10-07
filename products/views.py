@@ -109,7 +109,7 @@ def product_detail(request, product_id):
         total_rating = sum(review.rating for review in reviews)
         average_rating = total_rating / reviews.count()
     else:
-        average_rating = 'No Rating'
+        average_rating = 'No Reviews'
 
     wishlist = None
     if request.user.is_authenticated:

@@ -80,7 +80,11 @@
                                 <div class="col">
                                     <p class="mb-0 font-weight-bold">£{{ product.price }}</p>
                                     <small class="text-muted">{{ product.format_type }}</small><br>
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }}</small>
+                                    {% if product.average_rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1 text-warning"></i> {{ product.average_rating }}</small>
+                                    {% else %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1 text-warning"></i> No Reviews</small>
+                                    {% endif %}
                                     {% if request.user.is_superuser %}
                                     <hr>
                                     <small>
