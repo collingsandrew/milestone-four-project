@@ -48,6 +48,7 @@
                     <div class="col-12">
                         <select id="sort-selector" class="form-select rounded-0 mx-auto custom-select" aria-label="sort products">
                             <option selected disabled>Sort by...</option>
+                            <option value="rating-desc" {% if sort == 'rating-desc' %}selected{% endif %}>By Rating</option>
                             <option value="publication_date-asc" {% if sort == 'publication_date-asc' %}selected{% endif %}>Publication Date (old to new)</option>
                             <option value="publication_date-desc" {% if sort == 'publication_date-desc' %}selected{% endif %}>Publication Date (new to old)</option>
                             <option value="price-asc" {% if sort == 'price-asc' %}selected{% endif %}>Price (low to high)</option>
@@ -79,11 +80,7 @@
                                 <div class="col">
                                     <p class="mb-0 font-weight-bold">£{{ product.price }}</p>
                                     <small class="text-muted">{{ product.format_type }}</small><br>
-                                    {% if product.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>"Rating"</small>
-                                    {% else %}
-                                    <small class="text-muted">No Rating</small>
-                                    {% endif %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }}</small>
                                     {% if request.user.is_superuser %}
                                     <hr>
                                     <small>

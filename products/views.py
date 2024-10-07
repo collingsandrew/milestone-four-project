@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Avg
 from datetime import date, timedelta
 
 from .models import Product, Category, Review
@@ -17,6 +17,9 @@ def all_products(request):
     # filter only active products
     products = Product.objects.filter(is_active=True)
 
+    # calculate the average rating for each product
+    products = products.annotate(average_rating=Avg('review__rating'))
+
     sort = None
     query = None
     categories = None
@@ -28,6 +31,9 @@ def all_products(request):
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort_field, sort_direction = sortkey.split('-')
+
+            if sort_field == 'rating':
+                sort_field = 'average_rating'
 
             if sort_direction == 'desc':
                 sort_field = f'-{sort_field}'
