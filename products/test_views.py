@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from datetime import date, timedelta
 
-from .models import Product, Category
+from .models import Product, Category, Review
 
 
 class TestProductViews(TestCase):
@@ -84,7 +84,9 @@ class TestProductViews(TestCase):
         """
         product = self.active_product_1
 
-        response = self.client.get(f'/products/{product.id}/')
+        response = self.client.get(
+            reverse('product_detail', args=[product.id])
+        )
 
         self.assertEqual(response.status_code, 200)
 
@@ -93,7 +95,9 @@ class TestProductViews(TestCase):
         self.assertEqual(response.context['product'], product)
     
         inactive_product = self.inactive_product
-        response = self.client.get(f'/products/{inactive_product.id}/')
+        response = self.client.get(
+            reverse('product_detail', args=[inactive_product.id])
+        )
         self.assertEqual(response.status_code, 404)
 
     def test_filter_by_category(self):
@@ -205,7 +209,9 @@ class TestProductAdminViews(TestCase):
         test get product edit page as not superuser
         """
         product_id = 1
-        response = self.client.get(f'/products/edit/{product_id}/')
+        response = self.client.get(
+            reverse('edit_product', args=[product_id])
+        )
         self.assertEqual(response.status_code, 302)
 
     def test_get_add_product_page_superuser(self):
@@ -223,6 +229,75 @@ class TestProductAdminViews(TestCase):
         """
         self.client.login(username='testsuper', password='testsuper')
         product_id = 1
-        response = self.client.get(f'/products/edit/{product_id}/')
+        response = self.client.get(
+            reverse('edit_product', args=[product_id])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/edit_product.html')
+
+
+class TestAddReviewView(TestCase):
+
+    def setUp(self):
+        """
+        create user
+        """
+        self.user = User.objects.create_user(
+            username='test',
+            email='test@test.com',
+            password='test',
+        )
+        """
+        create test product
+        """
+        self.product = Product.objects.create(
+            name='test_product',
+            price=1.99,
+            stock=1
+        )
+
+    def test_add_review(self):
+        """
+        add review with valid data
+        """
+        self.client.login(username='test', password='test')
+        form_data = {
+            'review_title': 'Test Title',
+            'review_text': 'Test text',
+            'rating': 5,
+        }
+        response = self.client.post(
+            reverse('add_review', args=[self.product.id]), form_data
+        )
+        self.assertRedirects(
+            response,
+            reverse('product_detail',
+            args=[self.product.id])
+        )
+        self.assertTrue(
+            Review.objects.filter(
+                user=self.user,
+                product=self.product).exists()
+        )
+
+    def test_add_review_invalid(self):
+        """
+        add review with invalid data
+        """
+        self.client.login(username='test', password='test')
+        form_data = {
+            'review_title': 'Test Title',
+            'review_text': 'Test text',
+            'rating': 7,
+        }
+        response = self.client.post(
+            reverse('add_review', args=[self.product.id]), form_data
+        )
+        self.assertEqual(
+            response.status_code, 200
+        )
+        self.assertFalse(
+            Review.objects.filter(
+                user=self.user,
+                product=self.product).exists()
+        )

@@ -72,5 +72,7 @@ class TestBagViews(TestCase):
         )
 
         # remove product from bag
-        response = self.client.post(f'/bag/remove/{self.product.id}/')
+        response = self.client.post(
+            reverse('remove_from_bag', args=[self.product.id])
+        )
         self.assertEqual(response.status_code, 200)
