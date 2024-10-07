@@ -49,3 +49,7 @@ class ReviewForm(forms.ModelForm):
 
             # Remove labels
             self.fields[field].label = False
+            
+            # add min and max attributes to the product review rating field
+            self.fields['rating'].widget.attrs['min'] = 0
+            self.fields['rating'].widget.attrs['max'] = 5
