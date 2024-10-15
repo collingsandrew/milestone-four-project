@@ -1,0 +1,1 @@
+web: gunicorn book_nookery.wsgi:application
