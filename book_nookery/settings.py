@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-collingsand-milestonefo-v4ca8oecion.ws.codeinstitute-ide.net',
-    'book-nookery.herokuapp.com'
+    'book-nookery-7651786d7c47.herokuapp.com'
     ]
 
 CSRF_TRUSTED_ORIGINS = [
