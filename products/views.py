@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Avg
+from django.db import models
+from django.db.models import Q, Avg, Case, When
 from datetime import date, timedelta
 
 from .models import Product, Category, Review
@@ -35,10 +36,23 @@ def all_products(request):
             if sort_field == 'rating':
                 sort_field = 'average_rating'
 
+            # set sort direction
             if sort_direction == 'desc':
                 sort_field = f'-{sort_field}'
 
-            products = products.order_by(sort_field)
+            # order products based on rating
+            # products with no reviews will be last
+            if sort_field == 'average_rating':
+                products = products.annotate(
+                    rating_order = Case(
+                        When(average_rating__isnull=True, then=1),
+                        When(average_rating__isnull=False, then=0),
+                        output_field=models.IntegerField(),
+                    )
+                ).order_by('rating_order', sort_field)
+            else:
+                products = products.order_by(sort_field)
+            
             sort = sortkey
 
         # filter new releases
