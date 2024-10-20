@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-collingsand-milestonefo-v4ca8oecion.ws.codeinstitute-ide.net',
@@ -192,7 +192,6 @@ if 'USE_AWS' in os.environ:
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    AWS_S3_FILE_OVERWRITE = False
 
     # Custom locations for media and static files
     AWS_MEDIA_LOCATION = 'media'
@@ -201,7 +200,7 @@ if 'USE_AWS' in os.environ:
     STORAGES = {
         # Media files
         'default': {
-            'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
+            'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
             'OPTIONS': {
                 'location': AWS_MEDIA_LOCATION,
             },
