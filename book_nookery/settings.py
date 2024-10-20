@@ -201,7 +201,7 @@ if 'USE_AWS' in os.environ:
     STORAGES = {
         # Media files
         'default': {
-            'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+            'BACKEND': 'storages.backends.s3boto3.S3StaticStorage',
             'OPTIONS': {
                 'location': AWS_MEDIA_LOCATION,
             },
