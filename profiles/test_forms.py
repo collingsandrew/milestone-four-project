@@ -1,6 +1,7 @@
 from django.test import TestCase
 from .forms import UserProfileForm
 
+
 class TestUserProfileForm(TestCase):
 
     def setUp(self):

@@ -42,8 +42,9 @@ class TestWishlistViews(TestCase):
         # add the product details page as the current page the user is on
         redirect_url = reverse('product_detail', args=[self.product.id])
         response = self.client.get(
-            reverse('add_to_wishlist',
-            args=[self.product.id]),
+            reverse(
+                'add_to_wishlist', args=[self.product.id]
+            ),
             HTTP_REFERER=redirect_url
         )
 

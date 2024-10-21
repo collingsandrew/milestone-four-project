@@ -38,12 +38,12 @@ def add_to_wishlist(request, product_id):
     add a product to the user's wishlist
     """
     product = get_object_or_404(Product, pk=product_id)
-    
+
     # get the user's wishlist or create one if the user does not have one
     wishlist, created = Wishlist.objects.get_or_create(
         user_profile=request.user.userprofile
     )
-    
+
     # check if the user has the product in their wishlist, if not then add it
     if product in wishlist.products.all():
         messages.info(
@@ -56,7 +56,7 @@ def add_to_wishlist(request, product_id):
             request,
             f'Added {product.name} to your wishlist.'
         )
-    
+
     return redirect(request.META['HTTP_REFERER'])
 
 
@@ -73,7 +73,7 @@ def remove_from_wishlist(request, product_id):
             Wishlist,
             user_profile=request.user.userprofile
         )
-        
+
         # remove the product from the wishlist
         wishlist.products.remove(product)
         messages.success(

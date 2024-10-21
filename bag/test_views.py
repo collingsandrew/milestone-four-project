@@ -20,7 +20,7 @@ class TestBagViews(TestCase):
         """
         test get bag page
         """
-        response=self.client.get('/bag/')
+        response = self.client.get('/bag/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'bag/bag.html')
 
@@ -30,8 +30,8 @@ class TestBagViews(TestCase):
         """
         # add product to bag
         response = self.client.post(
-            reverse('add_to_bag',
-            args=[self.product.id]), {
+            reverse('add_to_bag', args=[self.product.id]),
+            {
                 'quantity': 2,
                 'redirect_url': '/'
             }
@@ -47,8 +47,8 @@ class TestBagViews(TestCase):
         """
         # add product to bag
         response = self.client.post(
-            reverse('add_to_bag',
-            args=[self.product.id]), {
+            reverse('add_to_bag', args=[self.product.id]),
+            {
                 'quantity': 10,
                 'redirect_url': '/'
             }
@@ -64,8 +64,8 @@ class TestBagViews(TestCase):
         """
         # add product to bag
         response = self.client.post(
-            reverse('add_to_bag',
-            args=[self.product.id]), {
+            reverse('add_to_bag', args=[self.product.id]),
+            {
                 'quantity': 1,
                 'redirect_url': '/'
             }

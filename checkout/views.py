@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse,
+    get_object_or_404, HttpResponse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -13,6 +16,7 @@ from bag.contexts import bag_contents
 
 import stripe
 import json
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -65,7 +69,7 @@ def checkout(request):
 
                     """
                     stock control -
-                    check if there is enough stock of the product and 
+                    check if there is enough stock of the product and
                     if not direct back to bag with an error message
                     """
                     if product.stock < quantity:
@@ -108,7 +112,7 @@ def checkout(request):
                 'There was an error with your form. \
                     Please double check your information.'
             )
-  
+
     else:
         bag = request.session.get('bag', {})
         if not bag:
@@ -127,7 +131,10 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        """
+        Attempt to prefill the form with
+        any info the user maintains in their profile
+        """
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -190,7 +197,7 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
-    
+
     messages.success(
         request,
         f'Order successfully processed! \

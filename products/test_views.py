@@ -21,7 +21,7 @@ class TestProductViews(TestCase):
         create active and inactive products
         """
 
-        self.active_product_1=Product.objects.create(
+        self.active_product_1 = Product.objects.create(
             name='Active Product 1',
             description="active",
             price=1.99,
@@ -31,7 +31,7 @@ class TestProductViews(TestCase):
             category=self.category1,
             is_active=True
         )
-        self.active_product_2=Product.objects.create(
+        self.active_product_2 = Product.objects.create(
             name='Active Product 2',
             description="active",
             price=1.99,
@@ -41,7 +41,7 @@ class TestProductViews(TestCase):
             category=self.category2,
             is_active=True
         )
-        self.inactive_product=Product.objects.create(
+        self.inactive_product = Product.objects.create(
             name='Inactive Product',
             description="inactive",
             price=1.99,
@@ -55,7 +55,7 @@ class TestProductViews(TestCase):
         """
         test view filters active products only
         """
-        response=self.client.get('/products/')
+        response = self.client.get('/products/')
         self.assertEqual(response.status_code, 200)
 
         products = response.context['products']
@@ -73,7 +73,7 @@ class TestProductViews(TestCase):
         """
         test get products page
         """
-        response=self.client.get('/products/')
+        response = self.client.get('/products/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
 
@@ -93,7 +93,7 @@ class TestProductViews(TestCase):
         self.assertTemplateUsed(response, 'products/product_detail.html')
 
         self.assertEqual(response.context['product'], product)
-    
+
         inactive_product = self.inactive_product
         response = self.client.get(
             reverse('product_detail', args=[inactive_product.id])
@@ -111,7 +111,7 @@ class TestProductViews(TestCase):
         self.assertContains(response, 'Active Product 1')
         # check the response does not contain an unexpected product
         self.assertNotContains(response, 'Active Product 2')
-    
+
     def test_filter_by_search_query(self):
         """
         test products filtering by search query
@@ -271,8 +271,7 @@ class TestAddReviewView(TestCase):
         )
         self.assertRedirects(
             response,
-            reverse('product_detail',
-            args=[self.product.id])
+            reverse('product_detail', args=[self.product.id])
         )
         self.assertTrue(
             Review.objects.filter(

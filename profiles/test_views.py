@@ -40,7 +40,7 @@ class TestProfileViews(TestCase):
         """
         test get profile page
         """
-        response=self.client.get('/profile/')
+        response = self.client.get('/profile/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profiles/profile.html')
 

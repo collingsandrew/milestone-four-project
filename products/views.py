@@ -44,7 +44,7 @@ def all_products(request):
             # products with no reviews will be last
             if sort_field == 'average_rating':
                 products = products.annotate(
-                    rating_order = Case(
+                    rating_order=Case(
                         When(average_rating__isnull=True, then=1),
                         When(average_rating__isnull=False, then=0),
                         output_field=models.IntegerField(),
@@ -52,7 +52,7 @@ def all_products(request):
                 ).order_by('rating_order', sort_field)
             else:
                 products = products.order_by(sort_field)
-            
+
             sort = sortkey
 
         # filter new releases
@@ -84,7 +84,7 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(
-                    request,"You didn't enter any search criteria!"
+                    request, "You didn't enter any search criteria!"
                 )
                 return redirect(reverse('products'))
 
@@ -148,7 +148,7 @@ def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -162,7 +162,7 @@ def add_product(request):
             )
     else:
         form = ProductForm()
-    
+
     template = 'products/add_product.html'
     context = {
         'form': form,
@@ -179,7 +179,7 @@ def edit_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(
@@ -220,7 +220,7 @@ def delete_product(request, product_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
@@ -233,21 +233,22 @@ def add_review(request, product_id):
     add a review for a product
     """
     product = get_object_or_404(Product, id=product_id)
-    if not request.user.is_authenticated:        
+    if not request.user.is_authenticated:
         messages.warning(
             request,
             'Please register/login to leave a review'
         )
 
         return redirect(reverse('product_detail', args=[product_id]))
-    
+
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             # check if the user has already submitted a review
             if Review.objects.filter(
                 user=request.user,
-                product=product).exists():
+                product=product
+            ).exists():
                 messages.error(
                     request,
                     "You have already submitted a review for this book"
@@ -262,7 +263,7 @@ def add_review(request, product_id):
                 request,
                 'Review submitted'
             )
-            
+
             return redirect(reverse('product_detail', args=[product_id]))
     else:
         form = ReviewForm()
@@ -272,5 +273,5 @@ def add_review(request, product_id):
         'form': form,
         'product': product
     }
-    
+
     return render(request, template, context)

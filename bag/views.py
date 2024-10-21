@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse,
+    HttpResponse, get_object_or_404
+)
 from django.contrib import messages
 
 from products.models import Product
@@ -8,7 +11,6 @@ def view_bag(request):
     """
     return the bag page
     """
-    
     return render(request, 'bag/bag.html')
 
 
@@ -16,7 +18,6 @@ def add_to_bag(request, item_id):
     """
     add a quantity of a specific product to the shopping bag
     """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -24,7 +25,7 @@ def add_to_bag(request, item_id):
 
     if quantity > product.stock:
         messages.error(
-            request, 
+            request,
             f'Sorry, only {product.stock} \
                 of {product.name} are left in stock'
         )
@@ -50,14 +51,13 @@ def adjust_bag(request, item_id):
     """
     adjust the quantity of specified product
     """
-
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
     if quantity > product.stock:
         messages.error(
-            request, 
+            request,
             f'Sorry, only {product.stock} \
                 of {product.name} are left in stock'
         )
@@ -79,7 +79,6 @@ def remove_from_bag(request, item_id):
     """
     remove specified product from the bag
     """
-
     try:
         product = get_object_or_404(Product, pk=item_id)
         bag = request.session.get('bag', {})

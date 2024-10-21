@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from profiles.models import UserProfile
 from wishlist.models import Wishlist
 
+
 class TestWishlistModel(TestCase):
 
     def setUp(self):
@@ -18,7 +19,7 @@ class TestWishlistModel(TestCase):
         self.wishlist = Wishlist.objects.create(
             user_profile=self.profile
         )
-    
+
     def test_wishlist_str(self):
         '''
         test string return value for model
