@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 from .models import Category
 
 
@@ -24,7 +24,7 @@ class TestProductForm(TestCase):
         category_field = form.fields['category']
         self.assertEqual(
             category_field.choices,
-            [(self.category.id, self.category.get_friendly_name())]
+            [(self.category.id, 'test friendly')]
         )
 
         # check the fields have the specified classes
@@ -33,3 +33,30 @@ class TestProductForm(TestCase):
                 'border-black rounded-0',
                 field.widget.attrs['class']
             )
+
+
+class TestReviewForm(TestCase):
+
+    def test_form_is_valid(self):
+        """
+        test the form is valid with valid data
+        """
+        form = ReviewForm(data={
+            'review_title': 'Test Title',
+            'review_text': 'Test text',
+            'rating': '5'
+        })
+
+        self.assertTrue(form.is_valid())
+
+    def test_form_is_invalid(self):
+        """
+        test the form is invalid with invalid data
+        """
+        form = ReviewForm(data={
+            'review_title': 'Test Title',
+            'review_text': 'Test text',
+            'rating': '6'
+        })
+
+        self.assertFalse(form.is_valid())
