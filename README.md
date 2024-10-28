@@ -30,7 +30,7 @@ The primary goal of Book Nookery from a site user’s perspective:
 - To search for a book by title, author, or description and view the search results
 - To create and manage a wishlist, allowing me to save or remove books
 
-### Data
+## Data
 
 The data in this project includes:
 - Username, email, and password for account management.
@@ -65,3 +65,111 @@ Orders
 
 Categories
 - Group books into categories to make it easier for users to find specific genres of books.
+
+## Database
+
+A relational database was implemented for Book Nookery, consisting of several tables: User, UserProfile, Contact, Category, Reviews, WishList, Product, OrderLineItem, and Order. PostgreSQL serves as the relational database, utilising one-to-many and many-to-many relationships with primary and foreign keys to efficiently manage connections between the tables. Each table is designed to handle specific aspects of the application, ensuring organised data storage and retrieval.
+
+### Schema
+
+<details>
+<summary>Table Schema</summary>
+<img src="documentation/images/Book Nookery Table Schema.png">
+</details>
+
+### Models
+
+User Model
+- id (PK): The primary key, uniquely identifying each user.
+- username: The user's chosen username.
+- email: The user's email address.
+- password: A hashed string for user authentication.
+
+UserProfile Model
+- id (PK): The primary key for the user profile, uniquely identifying each profile.
+- user_id: A foreign key linking to the User model, establishing a one-to-one relationship between a user and their profile.
+- default_phone_number: The user's contact number.
+- default_street_address1: The first line of the user's default street address.
+- default_street_address2: The second line of the user's default street address.
+- default_town_or_city: The town or city of the user's address.
+- default_county: The county of the user's address.
+- default_postcode: The postcode code for the user's address.
+- default_country: The country of the user's address.
+
+Contact Model
+- id (PK): The primary key for contact entries.
+- contact_name: The name of the user contacting the site.
+- contact_email: The email address of the user.
+- contact_phone_number: The phone number of the user.
+- contact_subject: The subject of the contact message.
+- contact_message: The message sent by the user.
+- date_submitted: The date and time when the contact message was sent.
+- contact_actioned: A boolean indicating whether the contact message has been addressed.
+
+Category Model
+- id (PK): The primary key for categories.
+- name: The name of the category (e.g., Fiction, Non-fiction).
+- friendly_name: A user-friendly version of the category name for display purposes.
+
+Product Model
+- id (PK): The primary key for products.
+- category_id (FK): A foreign key linking to the Category model, indicating the product's category.
+- name: The name of the product (book title).
+- sku: A unique identifier for the product.
+- isbn: The International Standard Book Number for books.
+- format_type: The format of the product (e.g., hardcover, paperback).
+- author: The author of the product.
+- publisher: The publisher of the product.
+- publication_date: The date the product was published.
+- description: A detailed description of the product.
+- edition: The edition of the product.
+- num_of_pages: The number of pages in the book.
+- image: An image of the product.
+- image_url: The URL for the product image.
+- price: The price of the product.
+- stock: The stock number of the product.
+- weight: The weight of the product.
+- dimensions: The dimensions of the product.
+- is_favourite: A boolean indicating if the product is marked as a favourite by the site.
+- is_active: A boolean indicating if the product is currently available for sale.
+
+Reviews Model
+- id (PK): The primary key for reviews.
+- user_id (FK): A foreign key linking to the User model, indicating who wrote the review.
+- product_id (FK): A foreign key linking to the Product model, indicating which product is being reviewed.
+- review_title: A short title of the review.
+- review_text: The main text content of the review.
+- rating: A decimal value representing the user's rating (e.g., 1 to 5 stars).
+- review_date: The date the review was submitted.
+
+WishList Model
+- id (PK): The primary key for the wishlist.
+- user_id (FK): A foreign key linking to the User model, indicating which user owns the wishlist.
+- product_id (m2m): A many-to-many relationship linking to the Product model, allowing multiple products to be added to the wishlist by the user.
+
+OrderLineItem Model
+- id (PK): The primary key for order line items.
+- order_id (FK): A foreign key linking to the Order model, indicating which order this item belongs to.
+- product_id (FK): A foreign key linking to the Product model, indicating which product is being ordered.
+- quantity: The quantity of the product being ordered.
+- line_item_total: The total cost for this line item.
+
+Order Model
+- id (PK): The primary key for orders.
+- user_profile_id (FK): A foreign key linking to the UserProfile model, indicating which user profile made the order.
+- order_number: A unique identifier for the order.
+- full_name: The full name of the customer placing the order.
+- email: The email address of the customer.
+- phone_number: The phone number of the customer.
+- street_address1: The first line of the shipping address.
+- street_address2: The second line of the shipping address.
+- town_or_city: The town or city for shipping.
+- county: The county for shipping.
+- postcode: The postcode code for shipping.
+- country: The country for shipping.
+- date: The date the order was placed.
+- delivery_cost: The cost of delivery.
+- order_total: The total cost of the order.
+- grand_total: The total amount charged.
+- original_bag: A text representation of the user's shopping bag.
+- stripe_pid: The payment identifier from Stripe.
