@@ -173,3 +173,72 @@ Order Model
 - grand_total: The total amount charged.
 - original_bag: A text representation of the user's shopping bag.
 - stripe_pid: The payment identifier from Stripe.
+
+## User Experience
+
+### Site Contents
+
+- A navbar and footer with relevant links to explore the site.
+- A home page with a welcome to the site.
+- A login page for a user to log in.
+- A sign up page for a user to sign up for an account.
+- A profile page for the user to view past orders and update their personal information.
+- Product pages that can be filtered by genre, new releases and favourites or all products.
+- Product detail page for each product.
+- A wishlist page for registered users to save books for future reference.
+- A bag page that shows everything a user has added to their bag.
+- A checkout page for a user to make an order.
+- A checkout success page to confirm a user's order.
+- An add review page where registered users can add reviews to a product.
+- A contact page which gives the means for a user to contact the store.
+- An add product page for the site owner to add a product to the store.
+- An edit product page for the site owner to edit a product currently on the store.
+- Relevant error pages.
+
+### User Stories
+
+#### Browsing & Viewing Books
+|ID| As A    | I Want To Be Able To                                       | So That I Can                                                              |
+|--|---------|------------------------------------------------------------|----------------------------------------------------------------------------|
+|1 | Shopper | Browse a selection of books                                | Pick some to buy                                                           |
+|2 | Shopper | View books by specific categories                          | Easily find the ones I’m interested in without sifting through everything  |
+|3 | Shopper | See detailed information about each book                   | Check the price, description, author, ratings, and cover image             |
+|4 | Shopper | Easily check the total cost of my items                    | Stay within my budget                                                      |
+|5 | Shopper | Contact the store easily, whether I have an account or not | Get answers to any questions I have                                        |
+|6 | Shopper | View and leave reviews on books                            | Share my thoughts and help others make decisions                           |
+
+#### Registration & User Accounts
+|ID| As A      | I Want To Be Able To                              | So That I Can                                                                |
+|--|-----------|---------------------------------------------------|------------------------------------------------------------------------------|
+|7 | Site User | Quickly create an account                         | Have a personal profile and access my information                            |
+|8 | Site User | Log in and log out with ease                      | Manage my account details                                                    |
+|9 | Site User | Change my password easily                         | Keep my account secure and up to date                                        |
+|10| Site User | Receive confirmation after signing up             | Know my account was created successfully                                     |
+|11| Site User | Have a personalised profile                       | View my order history, order confirmations, and save my personal information |
+
+#### Sorting & Searching
+|ID| As A    | I Want To Be Able To                                        | So That I Can                                                   |
+|--|---------|-------------------------------------------------------------|-----------------------------------------------------------------|
+|12| Shopper | Save and view my wish listed books                          | Easily find them when I’m ready to make a purchase              |
+|13| Shopper | Sort books within a category                                | Find a specific genre of books I am looking for                 |
+|14| Shopper | Sort books by different sorting lists                       | Find the best prices easily                                     |
+|15| Shopper | Search for a book by title, author, or description          | Quickly locate the one I want to buy                            |
+|16| Shopper | Clearly see my search results and the number of books found | Determine if the book I’m looking for is available              |
+
+#### Purchasing & Checkout
+|ID| As A    | I Want To Be Able To                                 | So That I Can                                                 |
+|--|---------|------------------------------------------------------|---------------------------------------------------------------|
+|17| Shopper | Review the items in my cart                          | See the total cost and confirm what I’m about to buy          |
+|18| Shopper | Adjust the items in my bag                           | Easily make changes before completing my purchase             |
+|19| Shopper | Enter my payment information quickly                 | Complete the checkout process smoothly                        |
+|20| Shopper | Feel confident that my payment information is secure | Proceed with my purchase without worries                      |
+|21| Shopper | See a confirmation of my order after checkout        | Ensure everything is correct                                  |
+
+#### Admin & Store Management
+|ID| As A        | I Want To Be Able To                            | So That I Can                                                                |
+|--|-------------|-------------------------------------------------|------------------------------------------------------------------------------|
+|22| Store Owner | Add new books to the store                      | Make them available for customers to purchase                                |
+|23| Store Owner | Update book details                             | Change prices, descriptions, authors, formats, images, and stock information |
+|24| Store Owner | Remove books from the store                     | Stop selling titles that are no longer available                             |
+|25| Store Owner | Track and display the amount of stock available | Ensure customers know how many copies are available                          |
+|26| Store Owner | Ensure errors redirect users to relevant pages  | Maintain user engagement and assist them with navigation                     |
