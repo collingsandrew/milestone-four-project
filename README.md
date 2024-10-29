@@ -180,6 +180,10 @@ Security features have been implemented to protect user credentials and prevent 
 
 ## CRUD
 
+The Django admin panel allows site owners and staff to manage all model entries within the site, including updating and deleting them.
+
+On the front end, users and site owners/staff have the following capabilities:
+
 Site User (customer)
 
 - Create an account
@@ -278,3 +282,83 @@ Book Nookery aims to offer a diverse range of books spanning various genres, fro
 |25| Store Owner | Track and display the amount of stock available | Ensure customers know how many copies are available                          |
 |26| Store Owner | Ensure errors redirect users to relevant pages  | Maintain user engagement and assist them with navigation                     |
 
+## Accessibility
+
+The site has been built with accessibility in mind to ensure that it is always a positive experience.
+
+This has been achieved by:
+
+- Semantic HTML.
+- Choosing fonts and colours with high contrast.
+- Adequate aria-labels for interactive features.
+
+## Design
+
+The site features a straightforward, simple design tailored to browsing books, viewing reviews, and encouraging reader engagement. It is user-friendly, easy to navigate, visually appealing, and responsive, with a structure that ensures simplicity in discovering and purchasing books.
+
+### Imagery
+
+The only images used on the site are book cover images, all sourced from the [Waterstones Site](https://www.waterstones.com/).
+
+### Wireframes
+
+<details>
+<summary>Home Page</summary>
+<img src="documentation/wireframes/home-wireframe.png">
+</details>
+<details>
+<summary>Register Page</summary>
+<img src="documentation/wireframes/register-wireframe.png">
+</details>
+<details>
+<summary>Login Page</summary>
+<img src="documentation/wireframes/login-wireframe.png">
+</details>
+<details>
+<summary>Profile Page</summary>
+<img src="documentation/wireframes/profile-wireframe.png">
+</details>
+<details>
+<summary>Products Page/s</summary>
+<img src="documentation/wireframes/products-wireframe.png">
+</details>
+<details>
+<summary>Product Detail Page</summary>
+<img src="documentation/wireframes/product-detail-wireframe.png">
+</details>
+<details>
+<summary>Add Product Page</summary>
+<img src="documentation/wireframes/add-product-wireframe.png">
+</details>
+<details>
+<summary>Edit Product Page</summary>
+<img src="documentation/wireframes/edit-product-wireframe.png">
+</details>
+<details>
+<summary>Wishlist Page</summary>
+<img src="documentation/wireframes/wishlist-wireframe.png">
+</details>
+<details>
+<summary>Add Review Page</summary>
+<img src="documentation/wireframes/add-review-wireframe.png">
+</details>
+<details>
+<summary>Shopping Bag Page</summary>
+<img src="documentation/wireframes/bag-wireframe.png">
+</details>
+<details>
+<summary>Checkout Page</summary>
+<img src="documentation/wireframes/checkout-wireframe.png">
+</details>
+<details>
+<summary>Checkout Success Page</summary>
+<img src="documentation/wireframes/checkout-success-wireframe.png">
+</details>
+<details>
+<summary>Contact Page</summary>
+<img src="documentation/wireframes/contact-wireframe.png">
+</details>
+<details>
+<summary>Error Page/s</summary>
+<img src="documentation/wireframes/error-page-wireframe.png">
+</details>
