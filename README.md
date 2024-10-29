@@ -362,3 +362,59 @@ The only images used on the site are book cover images, all sourced from the [Wa
 <summary>Error Page/s</summary>
 <img src="documentation/wireframes/error-page-wireframe.png">
 </details>
+
+### Typography
+
+The following Google Fonts were used on this site:
+
+- Open Sans is used for the main text of the site.
+
+<details>
+<summary>Open Sans</summary>
+<img src="documentation/images/open-sans-font-img.png">
+</details>
+
+- Amatic SC is used for the headings on the site.
+
+<details>
+<summary>Amatic SC</summary>
+<img src="documentation/images/amatic-sc-font-img.png">
+</details>
+
+### Colour Scheme
+
+The site features a clean and visually appealing design, using dark and light colors to create a clear layout with strong contrast.
+
+## Features
+
+### Features on Each Page
+
+#### Navbar
+
+Each page features a navbar containing the site heading and links to various pages. The links displayed vary based on the user's login status and account type (customer or staff). The navbar adjusts based on the device the user is using.
+
+<details>
+<summary>Navbar Logged Out</summary>
+<img src="documentation/features/navbar-logged-out.png">
+</details>
+<details>
+<summary>Navbar Logged In (Customer)</summary>
+<img src="documentation/features/navbar-logged-in-customer.png">
+</details>
+<details>
+<summary>Navbar Logged In (Staff)</summary>
+<img src="documentation/features/navbar-logged-in-staff.png">
+</details>
+<details>
+<summary>Navbar Mobile</summary>
+<img src="documentation/features/navbar-mobile.png">
+</details>
+
+#### Home Page
+
+The homepage welcomes users with an introduction to the site and provides a link to browse all books.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/home-page-features.png">
+</details>
