@@ -410,6 +410,15 @@ Each page features a navbar containing the site heading and links to various pag
 <img src="documentation/features/navbar-mobile.png">
 </details>
 
+#### Footer
+
+The footer includes links to relevant pages, such as the contact page and associated social media profiles, as well as information on accepted payment methods.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/footer-features.png">
+</details>
+
 #### Home Page
 
 The homepage welcomes users with an introduction to the site and provides a link to browse all books.
@@ -417,4 +426,139 @@ The homepage welcomes users with an introduction to the site and provides a link
 <details>
 <summary>Preview</summary>
 <img src="documentation/features/home-page-features.png">
+</details>
+
+#### Register Page
+
+The registration page includes a form for users to complete to create an account on the site. Upon submission, a confirmation email is sent for account verification.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/register-page-features.png">
+</details>
+
+#### Login Page
+
+The login page provides a form where users can enter their email address or username, followed by their password, to access their account.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/login-page-features.png">
+</details>
+
+#### Profile Page
+
+The profile page shows the user’s personal information and provides a form for updating details, along with a link to change their password. It also displays their order history, with links to each order confirmation.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/profile-page-features.png">
+</details>
+
+#### Products Page
+
+The product pages maintain a consistent design, whether users are browsing genres, new releases, or favorites. Each page showcases available products with images and relevant details, linking to their respective product detail pages. Staff members will also have access to links for editing or deleting products. Additionally, the page includes sorting functionality, allowing users to organise products by price and other criteria.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/products-page-features.png">
+</details>
+
+#### Product Details Page
+
+The product details page presents all essential information about the product, such as the title, author, rating, stock count, and description. It includes buttons for adding the product to the bag or wishlist, and staff members have access to links for editing or deleting the product. Furthermore, this page displays all reviews submitted by users for the product, with a link allowing the user to submit their own review.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/product-details-page-features.png">
+</details>
+
+#### Add and Edit Product Pages
+
+The add and edit product pages share the same design and are accessible only to staff members. The add product page features a form that enables staff to add a new product to the store, while the edit product page contains a form for editing an existing product in the store.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/edit-product-page-features.png">
+</details>
+
+#### Wishlist Page
+
+The wishlist page displays the products that users have added, with each product linking to its detail page, where users can add it to their bag. Each item on the wishlist also includes a button that allows users to remove it from their wishlist.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/wishlist-page-features.png">
+</details>
+
+#### Add Review Page
+
+The add review page includes a form that allows users to submit their own review for the related product.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/add-review-page-features.png">
+</details>
+
+#### Shopping Bag Page
+
+The shopping bag page presents an order summary of the products added by the user, including the total number of items and the overall cost, along with a link to the checkout page. It also details the contents of the user's bag, allowing them to remove items or adjust quantities.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/bag-page-features.png">
+</details>
+
+#### Checkout Page
+
+The checkout page includes a form for users to input their personal, delivery, and billing information to complete their order, accompanied by an order summary.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/checkout-page-features.png">
+</details>
+
+#### Checkout Success Page
+
+The checkout success page provides a confirmation of the user's order along with a summary of the order details.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/checkout-success-page-features.png">
+</details>
+
+#### Contact Page
+
+The contact page features a form for users to fill out in order to get in touch with the store.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/contact-page-features.png">
+</details>
+
+#### Delete Modal
+
+The delete modal appears when a staff member attempts to remove a product from the store.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/delete-modal-features.png">
+</details>
+
+#### Message Box
+
+The site displays a message box when users perform actions like adding a book to their bag or wishlist. These messages can indicate success or errors, such as when a user tries to access a restricted page or attempts to add a quantity of a product that exceeds available stock.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/message-box-features.png">
+</details>
+
+#### Error Page/s
+
+The error page displays the relevant error message and provides users with a link back to the site’s homepage.
+
+<details>
+<summary>Preview</summary>
+<img src="documentation/features/error-features.png">
 </details>
