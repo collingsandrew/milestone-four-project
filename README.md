@@ -391,7 +391,7 @@ The site features a clean and visually appealing design, using dark and light co
 
 #### Navbar
 
-Each page features a navbar containing the site heading and links to various pages. The links displayed vary based on the user's login status and account type (customer or staff). The navbar adjusts based on the device the user is using.
+Each page features a navbar containing the site heading and links to various pages. The links displayed vary based on the user's login status and account type (customer or staff). The navbar adjusts based on the device the user is using. The navbar features a search box that enables users to look for products by a specific author, and it displays the total cost of the items in their bag.
 
 <details>
 <summary>Navbar Logged Out</summary>
@@ -409,6 +409,8 @@ Each page features a navbar containing the site heading and links to various pag
 <summary>Navbar Mobile</summary>
 <img src="documentation/features/navbar-mobile.png">
 </details>
+
+User Stories covered: 4, 13, 15
 
 #### Footer
 
@@ -428,6 +430,8 @@ The homepage welcomes users with an introduction to the site and provides a link
 <img src="documentation/features/home-page-features.png">
 </details>
 
+User Stories Covered: 1
+
 #### Register Page
 
 The registration page includes a form for users to complete to create an account on the site. Upon submission, a confirmation email is sent for account verification.
@@ -436,6 +440,8 @@ The registration page includes a form for users to complete to create an account
 <summary>Preview</summary>
 <img src="documentation/features/register-page-features.png">
 </details>
+
+User Stories Covered: 7, 10
 
 #### Login Page
 
@@ -446,6 +452,8 @@ The login page provides a form where users can enter their email address or user
 <img src="documentation/features/login-page-features.png">
 </details>
 
+User Stories Covered: 8
+
 #### Profile Page
 
 The profile page shows the user’s personal information and provides a form for updating details, along with a link to change their password. It also displays their order history, with links to each order confirmation.
@@ -454,6 +462,8 @@ The profile page shows the user’s personal information and provides a form for
 <summary>Preview</summary>
 <img src="documentation/features/profile-page-features.png">
 </details>
+
+User Stories Covered: 9, 11
 
 #### Products Page
 
@@ -464,6 +474,8 @@ The product pages maintain a consistent design, whether users are browsing genre
 <img src="documentation/features/products-page-features.png">
 </details>
 
+User Stories Covered: 1, 2, 13, 14, 16, 24
+
 #### Product Details Page
 
 The product details page presents all essential information about the product, such as the title, author, rating, stock count, and description. It includes buttons for adding the product to the bag or wishlist, and staff members have access to links for editing or deleting the product. Furthermore, this page displays all reviews submitted by users for the product, with a link allowing the user to submit their own review.
@@ -472,6 +484,8 @@ The product details page presents all essential information about the product, s
 <summary>Preview</summary>
 <img src="documentation/features/product-details-page-features.png">
 </details>
+
+User Stories Covered: 3, 6, 12, 24, 25
 
 #### Add and Edit Product Pages
 
@@ -482,6 +496,8 @@ The add and edit product pages share the same design and are accessible only to 
 <img src="documentation/features/edit-product-page-features.png">
 </details>
 
+User Stories Covered: 22, 23
+
 #### Wishlist Page
 
 The wishlist page displays the products that users have added, with each product linking to its detail page, where users can add it to their bag. Each item on the wishlist also includes a button that allows users to remove it from their wishlist.
@@ -490,6 +506,8 @@ The wishlist page displays the products that users have added, with each product
 <summary>Preview</summary>
 <img src="documentation/features/wishlist-page-features.png">
 </details>
+
+User Stories Covered: 12
 
 #### Add Review Page
 
@@ -500,6 +518,8 @@ The add review page includes a form that allows users to submit their own review
 <img src="documentation/features/add-review-page-features.png">
 </details>
 
+User Stories Covered: 6
+
 #### Shopping Bag Page
 
 The shopping bag page presents an order summary of the products added by the user, including the total number of items and the overall cost, along with a link to the checkout page. It also details the contents of the user's bag, allowing them to remove items or adjust quantities.
@@ -508,6 +528,8 @@ The shopping bag page presents an order summary of the products added by the use
 <summary>Preview</summary>
 <img src="documentation/features/bag-page-features.png">
 </details>
+
+User Stories Covered: 4, 17, 18
 
 #### Checkout Page
 
@@ -518,6 +540,8 @@ The checkout page includes a form for users to input their personal, delivery, a
 <img src="documentation/features/checkout-page-features.png">
 </details>
 
+User Stories Covered: 17, 19, 20
+
 #### Checkout Success Page
 
 The checkout success page provides a confirmation of the user's order along with a summary of the order details.
@@ -526,6 +550,8 @@ The checkout success page provides a confirmation of the user's order along with
 <summary>Preview</summary>
 <img src="documentation/features/checkout-success-page-features.png">
 </details>
+
+User Stories Covered: 21
 
 #### Contact Page
 
@@ -536,6 +562,8 @@ The contact page features a form for users to fill out in order to get in touch 
 <img src="documentation/features/contact-page-features.png">
 </details>
 
+User Stories Covered: 5
+
 #### Delete Modal
 
 The delete modal appears when a staff member attempts to remove a product from the store.
@@ -544,6 +572,8 @@ The delete modal appears when a staff member attempts to remove a product from t
 <summary>Preview</summary>
 <img src="documentation/features/delete-modal-features.png">
 </details>
+
+User Stories Covered: 24
 
 #### Message Box
 
@@ -562,3 +592,5 @@ The error page displays the relevant error message and provides users with a lin
 <summary>Preview</summary>
 <img src="documentation/features/error-features.png">
 </details>
+
+User Stories Covered: 26
