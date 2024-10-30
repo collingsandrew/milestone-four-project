@@ -195,6 +195,11 @@ select option[value=""] {
     color: #3C3A36 !important;
 }
 
+.custom-btn-link {
+    text-decoration: none;
+    color: white !important;
+}
+
 .custom-btn-link:hover {
     text-decoration: none;
 }
