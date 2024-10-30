@@ -594,3 +594,7 @@ The error page displays the relevant error message and provides users with a lin
 </details>
 
 User Stories Covered: 26
+
+## Testing
+
+The testing details and results for this project are documented in the [TESTING.md](TESTING.md) file.

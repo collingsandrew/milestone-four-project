@@ -79,3 +79,24 @@ The CSS file base.css passed with no errors.
 <summary>base.css</summary>
 <img src="documentation/testing/validation/css-validation.png">
 </details>
+
+### JavaScript Validation
+
+[JS Hint](https://jshint.com/) JS Validation Service was used to validate the Javascript files. All pass with no issues.
+
+<details>
+<summary>base.js</summary>
+<img src="documentation/testing/validation/base-js-validation.png">
+</details>
+<details>
+<summary>products.js</summary>
+<img src="documentation/testing/validation/products-js-validation.png">
+</details>
+<details>
+<summary>stripe_elements.js</summary>
+<img src="documentation/testing/validation/stripe-elements-js-validation.png">
+</details>
+<details>
+<summary>country_field.js</summary>
+<img src="documentation/testing/validation/country-field-js-validation.png">
+</details>
