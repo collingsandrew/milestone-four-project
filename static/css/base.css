@@ -310,7 +310,7 @@ input[name='q'] {
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
-    color: #6c757d;
+    color: #3C3A36;
 }
 
 .allauth-form-inner-content input {
@@ -358,7 +358,12 @@ input[name='q'] {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #3C3A36;
+    text-decoration: underline;
+}
+
+.allauth-form-inner-content a:hover {
+    color: #17a2b8;
 }
 
 /* media queries */
