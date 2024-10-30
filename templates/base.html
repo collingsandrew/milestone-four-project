@@ -125,7 +125,7 @@
           <div class="d-lg-none ms-auto d-flex justify-content-center">
             <ul class="list-inline justify-content-center mb-0">
               <li class="list-inline-item">
-                <a href="{% url 'home' %}" class="nav-link">
+                <a href="{% url 'home' %}" class="nav-link" aria-label="home">
                   <div>
                     <i class="fa-solid fa-house me-3 fs-4"></i>
                   </div>
@@ -133,7 +133,7 @@
               </li>
 
               <li class="list-inline-item dropdown">
-                <a href="#" class="nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="#" class="nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false" aria-label="user-options">
                   <div>
                     <i class="fa-solid fa-circle-user me-3 fs-4"></i>
                   </div>
@@ -241,7 +241,7 @@
           <div class="col-md-4 d-flex align-items-center justify-content-center">
             <div class="d-flex flex-column align-items-center">
               <span class="fs-4">Contact</span>
-              <a href="{% url 'contact' %}">
+              <a href="{% url 'contact' %}" aria-label="contact">
                 <i class="fa-solid fa-envelope fs-3 mt-2"></i> 
               </a>
             </div>

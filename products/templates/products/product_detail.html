@@ -25,9 +25,9 @@
         <div class="col d-flex justify-content-center align-items-center">
             <div>
                 {% if product.image %}
-                    <img class="img-fluid product-detail-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <img class="img-fluid product-detail-img" src="{{ product.image.url }}" alt="product image for {{ product.name }}" aria-label="product image for {{ product.name }}">
                 {% else %}
-                    <img class="img-fluid product-detail-img" src="{{ MEDIA_URL }}no-image.webp" alt="{{ product.name }}">
+                    <img class="img-fluid product-detail-img" src="{{ MEDIA_URL }}no-image.webp" alt="product image for {{ product.name }}" aria-label="product image for {{ product.name }}">
                 {% endif %}
             </div>
         </div>

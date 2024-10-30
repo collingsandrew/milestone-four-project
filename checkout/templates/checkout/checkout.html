@@ -43,9 +43,9 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.image %}
-                        <img class="img-fluid" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                        <img class="img-fluid" src="{{ item.product.image.url }}" alt="product image for {{ product.name }}" aria-label="product image for {{ product.name }}">
                         {% else %}
-                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="product image for {{ product.name }}" aria-label="product image for {{ product.name }}">
                         {% endif %}
                     </a>
                 </div>
@@ -97,10 +97,10 @@
                         <label class="form-check-label" for="id-save-info">Save this delivery information to my
                             profile</label>
                         {% else %}
-                        <label class="form-check-label" for="id-save-info">
-                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                        </label>
+                        <span>
+                            <a class="text-decoration-underline" href="{% url 'account_signup' %}">Create an account</a> or
+                            <a class="text-decoration-underline" href="{% url 'account_login' %}">login</a> to save this information
+                        </span>
                         {% endif %}
                     </div>
                 </fieldset>
@@ -121,7 +121,7 @@
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
-                    <p class="small text-danger my-0 mt-1">
+                    <p class="small my-0 mt-1">
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>
