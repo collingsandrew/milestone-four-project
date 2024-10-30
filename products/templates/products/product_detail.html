@@ -9,14 +9,14 @@
 
 <div class="container mb-5">
     <div>
-        <a href="{% url 'products' %}">
-            <button class="btn btn-custom">
+        <button class="btn btn-custom">
+            <a href="{% url 'products' %}" class="custom-btn-link">
                 <span class="icon">
                     <i class="fas fa-chevron-left"></i>
                 </span>
                 <span>Continue Shopping</span>
-            </button>
-        </a>
+            </a>
+        </button>
     </div>    
 </div>
 <div class="container">
@@ -76,9 +76,11 @@
                 {% if product in wishlist.products.all %}
                 <p class="mt-2">This book is in your wishlist</p>
                 {% else %}
-                <a href="{% url 'add_to_wishlist' product.id %}" class="custom-btn-link mt-2">
-                    <button class="btn btn-custom">Add To Wishlist</button>
-                </a>
+                <button class="btn btn-custom mt-2">
+                    <a href="{% url 'add_to_wishlist' product.id %}" class="custom-btn-link">
+                        Add To Wishlist
+                    </a>
+                </button>
                 {% endif %}
                 {% else %}
                 <p class="mt-2">Register for an account to add this book to your wishlist!</p>
@@ -141,9 +143,11 @@
                 <h5>Reviews</h5>
                 {% if request.user.is_authenticated %}
                 <div>
-                    <a href="{% url 'add_review' product.id %}">
-                        <button class="btn btn-custom mb-3">Add a Review</button>
-                    </a>
+                    <button class="btn btn-custom mb-3">
+                        <a href="{% url 'add_review' product.id %}" class="custom-btn-link">
+                            Add a Review
+                        </a>
+                    </button>
                 </div>
                 {% else %}
                     <p class="text-muted">Register/Login to add a review!</p>

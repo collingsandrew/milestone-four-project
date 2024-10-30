@@ -133,12 +133,12 @@
               </li>
 
               <li class="list-inline-item dropdown">
-                <a href="#" class="nav-link" id="user-options" data-bs-toggle="dropdown" aria-expanded="false" aria-label="user-options">
+                <a href="#" class="nav-link" id="user-options-mobile" data-bs-toggle="dropdown" aria-expanded="false" aria-label="user-options-mobile">
                   <div>
                     <i class="fa-solid fa-circle-user me-3 fs-4"></i>
                   </div>
                 </a>
-                <div class="dropdown-menu rounded-0" aria-labelledby="user-options">
+                <div class="dropdown-menu rounded-0" aria-labelledby="user-options-mobile">
                   {% if request.user.is_authenticated %}
                   {% if request.user.is_superuser %}
                   <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
