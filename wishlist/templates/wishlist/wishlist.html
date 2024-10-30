@@ -67,11 +67,9 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-custom">
-                            <a href="{% url 'remove_from_wishlist' product.id %}" class="custom-btn-link">
-                                Remove
-                            </a>
-                        </button>
+                        <a href="{% url 'remove_from_wishlist' product.id %}" class="custom-btn-link btn btn-custom">
+                            Remove
+                        </a>
                     </div>
                 </div>
             </div>

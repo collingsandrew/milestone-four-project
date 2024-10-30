@@ -15,23 +15,19 @@
     <div class="row">
         <div>
             {% if from_profile %}
-            <button class="btn btn-custom mb-3">
-                <a href="{% url 'profile' %}" class="custom-btn-link">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span>Back to Profile</span>
-                </a>
-            </button>
+            <a href="{% url 'profile' %}" class="custom-btn-link btn btn-custom mb-3">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Back to Profile</span>
+            </a>
             {% else %}
-            <button class="btn btn-custom mb-3">
-                <a href="{% url 'products' %}" class="custom-btn-link">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span>Continue Shopping</span>
-                </a>
-            </button>
+            <a href="{% url 'products' %}" class="custom-btn-link btn btn-custom mb-3">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Continue Shopping</span>
+            </a>
             {% endif %}
         </div>
         <hr>

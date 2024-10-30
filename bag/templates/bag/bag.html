@@ -15,14 +15,12 @@
 <div class="container mb-2">
     <div class="row">
         <div>
-            <button class="btn btn-custom mb-3">
-                <a href="{% url 'products' %}" class="custom-btn-link">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span>Continue Shopping</span>
-                </a>
-            </button>
+            <a href="{% url 'products' %}" class="custom-btn-link btn btn-custom mb-3">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Continue Shopping</span>
+            </a>
         </div>
         <hr>
         {% if bag_items %}
@@ -37,14 +35,12 @@
                     You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
                 </p>
             {% endif %}
-            <button class="btn btn-custom mb-3">
-                <a href="{% url 'checkout' %}" class="custom-btn-link">
-                    <span>Secure Checkout</span>
-                    <span class="icon">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                </a>
-            </button>
+            <a href="{% url 'checkout' %}" class="custom-btn-link btn btn-custom mb-3">
+                <span>Secure Checkout</span>
+                <span class="icon">
+                    <i class="fas fa-lock"></i>
+                </span>
+             </a>
         </div>
         <div class="col-12 col-lg-9 mb-5">
             {% for item in bag_items %}

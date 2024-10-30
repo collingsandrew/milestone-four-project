@@ -197,7 +197,6 @@ select option[value=""] {
 
 .custom-btn-link {
     text-decoration: none;
-    color: white !important;
 }
 
 .custom-btn-link:hover {

@@ -16,14 +16,14 @@
     <div class="d-flex justify-content-center">
         <div class="col-12 col-lg-6">
             <form action="{% url 'contact' %}" method="POST" class="form mb-5">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="text-end">
-                <a href="{% url 'home' %}" class="btn btn-custom">Cancel</a>
-                <button class="btn btn-custom" type="submit">Send Message</button>
-            </div>
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-end">
+                    <a href="{% url 'home' %}" class="btn btn-custom">Cancel</a>
+                    <button class="btn btn-custom" type="submit">Send Message</button>
+                </div>
             </form>
-        </div>        
+        </div>
     </div>
 </div>
 
