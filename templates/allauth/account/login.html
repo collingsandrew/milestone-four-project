@@ -22,7 +22,7 @@
         {% element form form=form method="post" action=login_url tags="entrance,login" %}
             {% slot body %}
                 {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
+                {% element fields form=form %}
                 {{ form|crispy }}
                 {% endelement %}
                 {{ redirect_field }}
