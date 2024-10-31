@@ -100,3 +100,204 @@ The CSS file base.css passed with no errors.
 <summary>country_field.js</summary>
 <img src="documentation/testing/validation/country-field-js-validation.png">
 </details>
+
+### Python Validation
+
+[CI Python Linter](#https://pep8ci.herokuapp.com/) was used to check the python code of the site, all files returned no errors.
+
+#### Home
+
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/home-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/home-urls-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/home-test-views-python.png">
+</details>
+
+#### Bag
+
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/bag-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/bag-urls-python.png">
+</details>
+<details>
+<summary>contexts.py</summary>
+<img src="documentation/testing/python/bag-contexts-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/bag-test-views-python.png">
+</details>
+
+#### Checkout
+
+<details>
+<summary>admin.py</summary>
+<img src="documentation/testing/python/checkout-admin-python.png">
+</details>
+<details>
+<summary>forms.py</summary>
+<img src="documentation/testing/python/checkout-forms-python.png">
+</details>
+<details>
+<summary>models.py</summary>
+<img src="documentation/testing/python/checkout-models-python.png">
+</details>
+<details>
+<summary>signals.py</summary>
+<img src="documentation/testing/python/checkout-signals-python.png">
+</details>
+<details>
+<summary>test_forms.py</summary>
+<img src="documentation/testing/python/checkout-test-forms-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/checkout-urls-python.png">
+</details>
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/checkout-views-python.png">
+</details>
+<details>
+<summary>webhook_handler.py</summary>
+<img src="documentation/testing/python/checkout-webhook-handler-python.png">
+</details>
+<details>
+<summary>webhooks.py</summary>
+<img src="documentation/testing/python/checkout-webhooks-python.png">
+</details>
+
+#### Contact
+
+<details>
+<summary>admin.py</summary>
+<img src="documentation/testing/python/contact-admin-python.png">
+</details>
+<details>
+<summary>forms.py</summary>
+<img src="documentation/testing/python/contact-forms-python.png">
+</details>
+<details>
+<summary>models.py</summary>
+<img src="documentation/testing/python/contact-models-python.png">
+</details>
+<details>
+<summary>test_forms.py</summary>
+<img src="documentation/testing/python/contact-test-forms-python.png">
+</details>
+<details>
+<summary>test_models.py</summary>
+<img src="documentation/testing/python/contact-test-models-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/contact-test-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/contact-urls-python.png">
+</details>
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/contact-views-python.png">
+</details>
+
+#### Products
+
+<details>
+<summary>admin.py</summary>
+<img src="documentation/testing/python/products-admin-python.png">
+</details>
+<details>
+<summary>forms.py</summary>
+<img src="documentation/testing/python/products-forms-python.png">
+</details>
+<details>
+<summary>models.py</summary>
+<img src="documentation/testing/python/products-models-python.png">
+</details>
+<details>
+<summary>test_forms.py</summary>
+<img src="documentation/testing/python/products-test-forms-python.png">
+</details>
+<details>
+<summary>test_models.py</summary>
+<img src="documentation/testing/python/products-test-models-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/products-test-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/products-urls-python.png">
+</details>
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/products-views-python.png">
+</details>
+
+#### Profiles
+
+<details>
+<summary>forms.py</summary>
+<img src="documentation/testing/python/profiles-forms-python.png">
+</details>
+<details>
+<summary>models.py</summary>
+<img src="documentation/testing/python/profiles-models-python.png">
+</details>
+<details>
+<summary>test_forms.py</summary>
+<img src="documentation/testing/python/profiles-test-forms-python.png">
+</details>
+<details>
+<summary>test_models.py</summary>
+<img src="documentation/testing/python/profiles-test-models-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/profiles-test-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/profiles-urls-python.png">
+</details>
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/profiles-views-python.png">
+</details>
+
+#### Wishlist
+
+<details>
+<summary>models.py</summary>
+<img src="documentation/testing/python/wishlist-models-python.png">
+</details>
+<details>
+<summary>test_models.py</summary>
+<img src="documentation/testing/python/wishlist-test-models-python.png">
+</details>
+<details>
+<summary>test_views.py</summary>
+<img src="documentation/testing/python/wishlist-test-views-python.png">
+</details>
+<details>
+<summary>urls.py</summary>
+<img src="documentation/testing/python/wishlist-urls-python.png">
+</details>
+<details>
+<summary>views.py</summary>
+<img src="documentation/testing/python/wishlist-views-python.png">
+</details>
