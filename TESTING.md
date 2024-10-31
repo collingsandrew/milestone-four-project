@@ -607,3 +607,35 @@ Not all pages could be tested, as some require user login, which the WAVE access
 <summary>Contact (form control label errors)</summary>
 <img src="documentation/testing/wave/contact-wave.png">
 </details>
+
+## Manual Testing
+
+### Feature Testing
+
+| Feature        | Testing Performed                            | Pass/Fail |
+| -------------- | -------------------------------------------- | --------- |
+| Register       | Sign up and email confirmation works         | Pass      |
+| Login/Logout   | Sign in and log out                          | Pass      |
+| Profile        | Test personal information and order history shows| Pass      |
+| Update profile info | Test updating personal information      | Pass      |
+| Change Password | Test changing password                      | Pass      |
+| Links          | Test all links direct to intended location   | Pass      |
+| Buttons        | Test all links buttons have the correct function  | Pass      |
+| Search         | Test search functionality                    | Pass      |
+| Sort           | Test sort functionality                      | Pass/Fail (There is a bug that when sorting by rating, products with no reviews are sorted before the highest rated product. All other sorting options work.)     |
+| Product Links  | Test products link to relevant detail page   | Pass      |
+| Add Product    | Test adding a product with all fields and image | Pass      |
+| Edit Product   | Test editing a product                       | Pass      |
+| Delete Product | Test deleting a product                      | Pass      |
+| Add To Bag     | Test product is added to bag                 | Pass      |
+| Updating Bag   | Test product quantity changes on updating bag| Pass      |
+| Remove from Bag| Test product is removed from bag             | Pass      |
+| Checkout       | Test purchasing a product                    | Pass      |
+| Payment        | Stripe payment received                      | Pass      | 
+| Purchase       | Webhooks delivered                           | Pass      |
+| Stock Control  | Test stock change on purchasing a product    | Pass      |
+| Email Confirmations| Test purchase confirmation email is sent | Pass      |
+| Add Review     | Test adding review to product                | Pass      |
+| Add To Wishlist | Test adding product to wishlist             | Pass      |
+| Remove From Wishlist | Test removing product from wishlist    | Pass      |
+| Contact Form   | Test sending contact message                 | Pass      |
