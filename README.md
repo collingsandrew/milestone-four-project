@@ -267,7 +267,7 @@ Book Nookery aims to offer a diverse range of books spanning various genres, fro
 #### Purchasing & Checkout
 |ID| As A    | I Want To Be Able To                                 | So That I Can                                                 |
 |--|---------|------------------------------------------------------|---------------------------------------------------------------|
-|17| Shopper | Review the items in my cart                          | See the total cost and confirm what I’m about to buy          |
+|17| Shopper | Review the items in my bag                           | See the total cost and confirm what I’m about to buy          |
 |18| Shopper | Adjust the items in my bag                           | Easily make changes before completing my purchase             |
 |19| Shopper | Enter my payment information quickly                 | Complete the checkout process smoothly                        |
 |20| Shopper | Feel confident that my payment information is secure | Proceed with my purchase without worries                      |

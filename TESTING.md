@@ -639,3 +639,51 @@ Not all pages could be tested, as some require user login, which the WAVE access
 | Add To Wishlist | Test adding product to wishlist             | Pass      |
 | Remove From Wishlist | Test removing product from wishlist    | Pass      |
 | Contact Form   | Test sending contact message                 | Pass      |
+
+### Testing User Stories
+
+#### Browsing & Viewing Books
+|ID| As A    | I Want To Be Able To                                       | So That I Can                                                              | Action | Expected Result | Pass/Fail |
+|--|---------|------------------------------------------------------------|----------------------------------------------------------------------------| ------ | --------------- | --------- |
+|1 | Shopper | Browse a selection of books                                | Pick some to buy                                                           | Go to products page | View books | Pass |
+|2 | Shopper | View books by specific categories                          | Easily find the ones I’m interested in without sifting through everything  | Choose a category (genre) | View books of chosen category (genre) | Pass |
+|3 | Shopper | See detailed information about each book                   | Check the price, description, author, ratings, and cover image             | Go to product detail page | View book details | Pass |
+|4 | Shopper | Easily check the total cost of my items                    | Stay within my budget                                                      | Go to bag | View total cost | Pass |
+|5 | Shopper | Contact the store easily, whether I have an account or not | Get answers to any questions I have                                        | Complete contact form | Send contact message | Pass |
+|6 | Shopper | View and leave reviews on books                            | Share my thoughts and help others make decisions                           | Complete review form | View book reviews | Pass |
+
+#### Registration & User Accounts
+|ID| As A      | I Want To Be Able To                              | So That I Can                                                                | Action | Expected Result | Pass/Fail |
+|--|-----------|---------------------------------------------------|------------------------------------------------------------------------------| ------ | --------------- | --------- |
+|7 | Site User | Quickly create an account                         | Have a personal profile and access my information                            | Complete sign up form | Account created | Pass |
+|8 | Site User | Log in and log out with ease                      | Manage my account details                                                    | Log in and log out | Log in and log out |  Pass |
+|9 | Site User | Change my password easily                         | Keep my account secure and up to date                                        | Complete change password form | Password changed | Pass |
+|10| Site User | Receive confirmation after signing up             | Know my account was created successfully                                     | Complete sign up form | Receive confirmation email | Pass
+|11| Site User | Have a personalised profile                       | View my order history, order confirmations, and save my personal information | View profile, complete change details form on profile | View order history and personal information, personal information updates | Pass |
+
+#### Sorting & Searching
+|ID| As A    | I Want To Be Able To                                        | So That I Can                                                   | Action | Expected Result | Pass/Fail |
+|--|---------|-------------------------------------------------------------|-----------------------------------------------------------------| ------ | --------------- | --------- |
+|12| Shopper | Save and view my wish listed books                          | Easily find them when I’m ready to make a purchase              | Add book to wishlist | View wishlisted books | Pass |
+|13| Shopper | Sort books within a category                                | Find a specific genre of books I am looking for                 | Choose a category (genre) | View books of chosen category (genre) | Pass |
+|14| Shopper | Sort books by different sorting lists                       | Find the best prices easily                                     | Sort books by price ascending | Books sorted by price ascending | Pass |
+|15| Shopper | Search for a book by title, author, or description          | Quickly locate the one I want to buy                            | Search for a book by title | Book is found | Pass |
+|16| Shopper | Clearly see my search results and the number of books found | Determine if the book I’m looking for is available              | Search for a book by author | View books by said author with number of results shown | Pass |
+
+#### Purchasing & Checkout
+|ID| As A    | I Want To Be Able To                                 | So That I Can                                                 | Action | Expected Result | Pass/Fail |
+|--|---------|------------------------------------------------------|---------------------------------------------------------------| ------ | --------------- | --------- |
+|17| Shopper | Review the items in my bag                           | See the total cost and confirm what I’m about to buy          | Go to bag | View total cost and verify items | Pass |
+|18| Shopper | Adjust the items in my bag                           | Easily make changes before completing my purchase             | Update item quantity | Quantity updates | Pass |
+|19| Shopper | Enter my payment information quickly                 | Complete the checkout process smoothly                        | Complete checkout form | Complete payment entry smoothly | Pass |
+|20| Shopper | Feel confident that my payment information is secure | Proceed with my purchase without worries                      | Make payment | Fell confident in the security of the payment | Pass |
+|21| Shopper | See a confirmation of my order after checkout        | Ensure everything is correct                                  | Make purchase | Receive confirmation email and be directed to order confirmation page | Pass |
+
+#### Admin & Store Management
+|ID| As A        | I Want To Be Able To                            | So That I Can                                                                | Action | Expected Result | Pass/Fail |
+|--|-------------|-------------------------------------------------|------------------------------------------------------------------------------| ------ | --------------- | --------- |
+|22| Store Owner | Add new books to the store                      | Make them available for customers to purchase                                | Add new product | Product added to store | Pass |
+|23| Store Owner | Update book details                             | Change prices, descriptions, authors, formats, images, and stock information | Edit product | Product updated successfully | Pass |
+|24| Store Owner | Remove books from the store                     | Stop selling titles that are no longer available                             | Delete a product | Product is deleted from the store | Pass |
+|25| Store Owner | Track and display the amount of stock available | Ensure customers know how many copies are available                          | View product detail page | View the current stock of the product | Pass |
+|26| Store Owner | Ensure errors redirect users to relevant pages  | Maintain user engagement and assist them with navigation                     | Force a 404 error | Be directed to a 404 error page | Pass |
