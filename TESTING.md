@@ -8,6 +8,8 @@ Google Developer Tools was used to test the site on various device sizes.
 
 ## Automated Testing
 
+### Unit Tests
+
 ### HTML Validation
 
 [W3C](https://validator.w3.org/) Markup Validation Service was used to validate the HTML of the site.
@@ -103,7 +105,7 @@ The CSS file base.css passed with no errors.
 
 ### Python Validation
 
-[CI Python Linter](#https://pep8ci.herokuapp.com/) was used to check the python code of the site, all files returned no errors.
+[pep8ci Python Linter](https://pep8ci.herokuapp.com/) was used to check the python code of the site, all files returned no errors.
 
 #### Home
 
@@ -458,4 +460,37 @@ Google Developer Tools, specifically the Lighthouse feature, was used to test th
 <details>
 <summary>Mobile</summary>
 <img src="documentation/testing/lighthouse/contact-mobile-lighthouse.png">
+</details>
+
+### Accessibility
+
+[WAVE Web Accessibility Tool](https://wave.webaim.org/) was used to test for accessibility errors.
+
+Some pages displayed errors due to the use of 'unlabelled=True' in Django crispy forms. I modified the Django templates to remove these tags. However, despite labels being present in the form controls within the page source code, errors remain for this reason. Aside from these specific errors, all other pages are error-free.
+
+Not all pages could be tested, as some require user login, which the WAVE accessibility tester does not support.
+
+<details>
+<summary>Home</summary>
+<img src="documentation/testing/wave/home-wave.png">
+</details>
+<details>
+<summary>Login (form control label errors)</summary>
+<img src="documentation/testing/wave/login-wave.png">
+</details>
+<details>
+<summary>Register (form control label errors)</summary>
+<img src="documentation/testing/wave/signup-wave.png">
+</details>
+<details>
+<summary>Products</summary>
+<img src="documentation/testing/wave/products-wave.png">
+</details>
+<details>
+<summary>Product Detail</summary>
+<img src="documentation/testing/wave/product-detail-wave.png">
+</details>
+<details>
+<summary>Contact (form control label errors)</summary>
+<img src="documentation/testing/wave/contact-wave.png">
 </details>
