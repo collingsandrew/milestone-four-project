@@ -301,3 +301,161 @@ The CSS file base.css passed with no errors.
 <summary>views.py</summary>
 <img src="documentation/testing/python/wishlist-views-python.png">
 </details>
+
+### Lighthouse Testing
+
+Google Developer Tools, specifically the Lighthouse feature, was used to test the site's performance, accessibility, best practices, and SEO. Desktop scores were strong across all metrics; however, mobile performance scored lower than expected. This was primarily due to essential CSS and JavaScript files. Improving site performance is something I would like to look further into as I recognise how this could affect user experience and retention.
+
+#### Home
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/home-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/home-mobile-lighthouse.png">
+</details>
+
+#### Login
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/login-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/login-mobile-lighthouse.png">
+</details>
+
+#### Register
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/signup-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/signup-mobile-lighthouse.png">
+</details>
+
+#### Profile
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/profile-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/profile-mobile-lighthouse.png">
+</details>
+
+#### Products
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/products-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/products-mobile-lighthouse.png">
+</details>
+
+#### Product Detail
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/product-detail-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/product-detail-mobile-lighthouse.png">
+</details>
+
+#### Add Product
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/add-product-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/add-product-mobile-lighthouse.png">
+</details>
+
+#### Edit Product
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/edit-product-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/edit-product-mobile-lighthouse.png">
+</details>
+
+#### Wishlist
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/wishlist-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/wishlist-mobile-lighthouse.png">
+</details>
+
+#### Add Review
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/add-review-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/add-review-mobile-lighthouse.png">
+</details>
+
+#### Shopping Bag
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/bag-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/bag-mobile-lighthouse.png">
+</details>
+
+#### Checkout
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/checkout-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/checkout-mobile-lighthouse.png">
+</details>
+
+#### Order Confirmation
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/order-confirm-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/order-confirm-mobile-lighthouse.png">
+</details>
+
+#### Contact
+
+<details>
+<summary>Desktop</summary>
+<img src="documentation/testing/lighthouse/contact-desktop-lighthouse.png">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="documentation/testing/lighthouse/contact-mobile-lighthouse.png">
+</details>
