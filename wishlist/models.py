@@ -4,9 +4,10 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
-# a model for the users wishlist
 class Wishlist(models.Model):
-
+    """
+    A model for the user's wishlist.
+    """
     user_profile = models.ForeignKey(
         UserProfile,
         on_delete=models.SET_NULL,
