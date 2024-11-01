@@ -687,3 +687,129 @@ Not all pages could be tested, as some require user login, which the WAVE access
 |24| Store Owner | Remove books from the store                     | Stop selling titles that are no longer available                             | Delete a product | Product is deleted from the store | Pass |
 |25| Store Owner | Track and display the amount of stock available | Ensure customers know how many copies are available                          | View product detail page | View the current stock of the product | Pass |
 |26| Store Owner | Ensure errors redirect users to relevant pages  | Maintain user engagement and assist them with navigation                     | Force a 404 error | Be directed to a 404 error page | Pass |
+
+## Bugs
+
+### Solved Bugs
+
+#### Bug -
+Users were able to exceed the product stock limit by adding items one at a time, eventually surpassing available stock. To fix this, I implemented code that checks if the quantity of the item in the bag is greater than or equal to the product's stock. If it meets or exceeds the stock, an error message alerts the user that no more stock is available. If not, the quantity is added to the bag item as expected.
+
+Original Code -
+
+```bash
+
+if item_id in list(bag.keys()):
+    bag[item_id] += quantity
+else:
+    bag[item_id] = quantity
+    messages.success(request, f'Added {product.name} to your bag')
+
+```
+
+New Code -
+
+```bash
+
+if item_id in list(bag.keys()):
+    if bag[item_id] >= product.stock:
+        messages.error(
+            request,
+            f'Sorry, only {product.stock} \
+        of {product.name} are left in stock'
+        )
+    else:
+        bag[item_id] += quantity
+else:
+    bag[item_id] = quantity
+    messages.success(request, f'Added {product.name} to your bag')
+
+```
+
+#### Bug -
+Unauthenticated users couldn’t check out because the “save info” checkbox, which only appears for authenticated users, wasn’t rendering. The JavaScript still tried to check this box’s status, even when it wasn’t there. To fix this, I updated the JavaScript to first verify if the checkbox is present; if it is, it then runs the code to save the user's info when checked.
+
+Old Code -
+
+```bash
+
+ let saveInfo = document.getElementById('id-save-info').checked;
+
+```
+
+New Code -
+
+```bash
+
+let saveInfo = null;
+let saveInfoCheckbox = document.getElementById('id-save-info');
+
+if (saveInfoCheckbox) {
+    saveInfo = saveInfoCheckbox.checked;
+}
+
+```
+
+### Known Bugs
+
+#### Bug -
+When sorting products by rating, those without any reviews, so no average rating, appear before products with ratings. While products with ratings are sorted in descending order, the unrated products still show up first. I tried adjusting the code to use a 'when' case to place unrated products at index 1 and rated products at index 0. This works locally, but on Heroku, the issue persists, with unrated products still appearing before rated ones. This bug remains unresolved, and I plan to investigate further to fix it.
+
+I got the idea to use the 'when' case from Stack Overflow on [this page](https://stackoverflow.com/questions/33235080/order-a-django-queryset-in-ascending-order-but-with-0-valued-items-at-the-end).
+
+Old Code -
+
+```bash
+
+if request.GET:
+    # sorting of products
+    if 'sort' in request.GET:
+        sortkey = request.GET['sort']
+        sort_field, sort_direction = sortkey.split('-')
+
+        if sort_field == 'rating':
+            sort_field = 'average_rating'
+
+        if sort_direction == 'desc':
+            sort_field = f'-{sort_field}'
+
+        products = products.order_by(sort_field)
+        sort = sortkey
+
+```
+
+New Code -
+
+This was an attempted fix for the bug, but it did not resolve the issue.
+
+```bash
+
+if request.GET:
+    # sorting of products
+    if 'sort' in request.GET:
+        sortkey = request.GET['sort']
+        sort_field, sort_direction = sortkey.split('-')
+
+        if sort_field == 'rating':
+            sort_field = 'average_rating'
+
+        # set sort direction
+        if sort_direction == 'desc':
+            sort_field = f'-{sort_field}'
+
+        # order products based on rating
+        # products with no reviews will be last
+        if sort_field == 'average_rating':
+            products = products.annotate(
+                rating_order = Case(
+                    When(average_rating__isnull=True, then=1),
+                    When(average_rating__isnull=False, then=0),
+                    output_field=models.IntegerField(),
+                )
+            ).order_by('rating_order', sort_field)
+        else:
+            products = products.order_by(sort_field)
+        
+        sort = sortkey
+
+```
