@@ -614,3 +614,66 @@ User Stories Covered: 26
 ## Testing
 
 The testing details and results for this project are documented in the [TESTING.md](TESTING.md) file.
+
+## Technologies
+
+### Languages
+
+- HTML
+- CSS
+- JavaScript
+- Python
+
+### Databases
+
+- sqlite3 (for development with Django)
+- PostgreSQL
+- AWS S3 (for object storage)
+
+### Frameworks
+
+- Django version 5.1
+- Bootstrap 5
+
+### Libraries and Packages
+
+- Django Allauth - for user account funcionality
+- django-countries - provides a list of countries
+- django-crispy-forms - rendering of forms
+- crispy-bootstrap5 - to integrate crispy forms to bootstrap5
+- django-storages - for cloud storage
+- gunicorn - Python WSGI HTTP server
+- pillow - support for image files
+- psycopg2 - for interaction with postgresql databases
+- boto3 - for connection with AWS S3 bucket
+- Font Awesome - for icons
+
+### Software/Apps Used
+
+- [Chrome Developer Tools](https://developer.chrome.com/docs/devtools)
+- [JSHint](https://jshint.com/)
+- [Code Institute Python Linter](https://pep8ci.herokuapp.com/)
+- [W3C HTML Validator](https://validator.w3.org/)
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+- [Wave Accessibility Evaluation Tool](https://wave.webaim.org/)
+- [Balsamiq](https://balsamiq.com/wireframes/)
+- [Lucid Chart](https://www.lucidchart.com/pages/?)
+- [Google Fonts](https://fonts.google.com/about)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com/)
+- [GitPod](https://www.gitpod.io/)
+- [Favicon](https://favicon.io/)
+- [YouTube](https://www.youtube.com/)
+- [TempMail](https://temp-mail.org/en/)
+
+### Stripe
+
+[Stripe](https://stripe.com/gb?utm_campaign=EMEA_UK_en_Google_Search_Brand_Stripe_EXA-2032860449&utm_medium=cpc&utm_source=google&ad_content=604272871169&utm_term=stripe&utm_matchtype=e&utm_adposition=&utm_device=c&gad_source=1&gclid=CjwKCAjw-JG5BhBZEiwAt7JR61jVbAC20OfkTGsPg4mMcyNBjaL6BgKpBkgv2M4kcZhoj9h1oFmpohoCeHYQAvD_BwE) was used to implement the payment system for the site.
+
+The following card details can be used to test the funciotnality of the sites's payment system.
+
+| Type| Card No| Expiry| CVC| ZIP|
+| --- | --- | --- | --- | --- |
+| Success| Visa | 4242 4242 4242 4242 | A date in the future | Any 3 digits | Any 5 digits |
+| Require authorisation | 4000 0027 6000 3184 | A date in the future | Any 3 digits | Any 5 digits |
+| Declined | 4000 0000 0000 0002 | A date in the future | Any 3 digits | Any 5 digits |
