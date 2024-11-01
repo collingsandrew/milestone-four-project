@@ -178,6 +178,22 @@ Order Model
 
 Security features have been implemented to protect user credentials and prevent unauthorised access. This includes using Django's built-in password hashing to safeguard user passwords. The @login_required decorator is employed to ensure that only logged-in users can view specific pages.
 
+## Form Validation
+
+For form validation, I have implemented checks to ensure that ratings are between 1 and 5, enabling users to provide valid feedback and ensuring the accuracy of product ratings. When a user attempts to submit a review for a product they have already reviewed, I have implemented backend code to check for this. If they have previously submitted a review, an error message will be displayed to inform them. Additionally, I have added a stock validation feature that prevents users from adding more items to their bag than are in stock. These measures contribute to a smooth and reliable shopping experience. The Django forms also come with built-in automatic validation, which is already implemented.
+
+## Product Management
+
+I have implemented a delete product feature for store owners, but instead of permanently removing products, I have added an 'is_active' field to the product model. This allows a 'soft delete' for better business logic and helps retain records of related data, such as for tax purposes. When a user attempts to delete a product, a modal will prompt them to deactivate the product instead. In the backend, all products are filtered to display only the active ones to users.
+
+## Stock Management
+
+I have implemented stock management to the site to monitor product inventory. For instance, when a user purchases a product, the backend automatically adjusts the stock based on the quantity purchased. If a product is out of stock, the product detail page will display "out of stock" instead of the "add to bag" button.
+<details>
+<summary>Out Of Stock</summary>
+<img src="documentation/images/out-of-stock.png">
+</details>
+
 ## CRUD
 
 The Django admin panel allows site owners and staff to manage all model entries within the site, including updating and deleting them.
