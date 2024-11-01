@@ -677,3 +677,25 @@ The following card details can be used to test the funciotnality of the sites's 
 | Success| Visa | 4242 4242 4242 4242 | A date in the future | Any 3 digits | Any 5 digits |
 | Require authorisation | 4000 0027 6000 3184 | A date in the future | Any 3 digits | Any 5 digits |
 | Declined | 4000 0000 0000 0002 | A date in the future | Any 3 digits | Any 5 digits |
+
+## Credits
+
+- Code Institute for their course material on their project 'Boutique Ado'.
+- [Stack Overflow](https://stackoverflow.com/) for ideas and solving issues.
+- [Learn Django](https://learndjango.com/tutorials/django-login-and-logout-tutorial#password-change) for adding password change functionality.
+- [Adiyat Mubarak](https://adiyatmubarak.wordpress.com/2017/01/13/add-http_referer-in-django-test-client/) to test redirection to same page.
+- [Stack Overflow post](https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model) for adding a mininum and maximimum integer value to a model field.
+- [Treehouse](https://teamtreehouse.com/community/how-to-perform-an-average-with-annotation) to calculate the average rating for each product.
+- [Cloud With Django - YouTube](https://www.youtube.com/watch?v=JQVQcNN0cXE&list=PLF5aobzHSchkhjYGigJ6ldBQJ39VSi69o&index=25) for implementing Amazon S3 storage on newer versions of Django.
+
+## Content
+
+All of the product content on the site was sourced from the [Waterstones](https://www.waterstones.com/) website.
+
+## Acknowledgements
+
+- My mentor for guidance throughout the project.
+- Code Institute for their course material.
+- My cohort for help and support throughout the project.
+- The Slack community for helpful advice and support.
+- Tutor support from Code Institute.
